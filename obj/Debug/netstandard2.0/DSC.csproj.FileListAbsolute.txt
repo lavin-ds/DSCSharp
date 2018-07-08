@@ -1,0 +1,9 @@
+C:\Users\lavin\Desktop\Projects\DSC#\bin\Debug\netstandard2.0\DSC.deps.json
+C:\Users\lavin\Desktop\Projects\DSC#\bin\Debug\netstandard2.0\DSC.dll
+C:\Users\lavin\Desktop\Projects\DSC#\bin\Debug\netstandard2.0\DSC.pdb
+C:\Users\lavin\Desktop\Projects\DSC#\obj\Debug\netstandard2.0\DSC.csprojAssemblyReference.cache
+C:\Users\lavin\Desktop\Projects\DSC#\obj\Debug\netstandard2.0\DSC.csproj.CoreCompileInputs.cache
+C:\Users\lavin\Desktop\Projects\DSC#\obj\Debug\netstandard2.0\DSC.AssemblyInfoInputs.cache
+C:\Users\lavin\Desktop\Projects\DSC#\obj\Debug\netstandard2.0\DSC.AssemblyInfo.cs
+C:\Users\lavin\Desktop\Projects\DSC#\obj\Debug\netstandard2.0\DSC.dll
+C:\Users\lavin\Desktop\Projects\DSC#\obj\Debug\netstandard2.0\DSC.pdb

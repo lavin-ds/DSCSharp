@@ -182,9 +182,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lavin\\Desktop\\Projects\\DSC#\\DSC#.csproj",
-      "projectName": "DSC#",
-      "projectPath": "C:\\Users\\lavin\\Desktop\\Projects\\DSC#\\DSC#.csproj",
+      "projectUniqueName": "C:\\Users\\lavin\\Desktop\\Projects\\DSC#\\DSC.csproj",
+      "projectName": "DSC",
+      "projectPath": "C:\\Users\\lavin\\Desktop\\Projects\\DSC#\\DSC.csproj",
       "packagesPath": "C:\\Users\\lavin\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\lavin\\Desktop\\Projects\\DSC#\\obj\\",
       "projectStyle": "PackageReference",
