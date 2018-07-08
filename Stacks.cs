@@ -1,9 +1,11 @@
 ﻿using System;
 
 namespace DataStructuresCsharp
-{
-    public class Stacks
+{    
+    public class Stack
     {
-
+        int Length;
+        int Top;
+        Array[] arr;
     }
 }
