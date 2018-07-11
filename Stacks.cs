@@ -2,12 +2,25 @@
 
 namespace DataStructuresCsharp
 {    
+    public class StackDT
+    {
+        public int Length;
+        public int Top;
+        public int[] arr;
+    }
+
     public class Stack
     {
-        int Length;
-        int Top;
-        Array[] arr;
-//Changes to local workspace
-        //test comment
+        private StackDT st;
+        public Stack()
+        {
+            CreateStack();   
+        }        
+        public void CreateStack()
+        {
+            st.Top = -1;
+            st.Length = 0;
+            st.arr = new int[10];           
+        }   
     }
 }
