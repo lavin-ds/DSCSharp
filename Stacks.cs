@@ -22,5 +22,40 @@ namespace DataStructuresCsharp
             st.Length = 0;
             st.arr = new int[10];           
         }   
+
+        public bool IsEmpty()
+        {
+            return  (st.Top == -1);
+        }
+
+        public bool IsFull()
+        {
+            return (st.Length ==0);
+        }
+
+        public void Push (int data)
+        {
+            if(IsFull())
+            {
+                throw new Exception();
+            }
+            else
+            {
+                st.Top++;
+                st.arr[st.Top] = data;
+            }            
+        }
+
+        public int Pop()
+        {
+            if (IsEmpty())
+            {
+                throw new Exception();
+            }
+            else
+            {
+                return st.arr[st.Top--];
+            }
+        }
     }
 }
