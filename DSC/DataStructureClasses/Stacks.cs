@@ -1,7 +1,18 @@
-﻿using System;
+﻿/*********************************************************
+Author          - lavinds
+Date Created    - 07-Jul-2018
+**********************************************************
+Sn      Author      Date            Comments
+**********************************************************
+1.      lavinds   21-Jul-2018       Initial draft of file 
+*********************************************************/
+
+#region Namespaces
+using System;
+#endregion
 
 namespace DataStructuresCsharp
-{    
+{       
     public class StackDT
     {
         public int Length;
@@ -18,10 +29,21 @@ namespace DataStructuresCsharp
         }        
         public void CreateStack()
         {
+            st = new StackDT();
             st.Top = -1;
             st.Length = 0;
             st.arr = new int[10];           
         }   
+
+        public int PeekTop()
+        {
+            return st.arr[st.Top];
+        }
+
+        public int Length()
+        {
+            return st.Length;
+        }
 
         public bool IsEmpty()
         {
@@ -30,7 +52,7 @@ namespace DataStructuresCsharp
 
         public bool IsFull()
         {
-            return (st.Length ==0);
+            return (st.Length ==10);
         }
 
         public void Push (int data)
