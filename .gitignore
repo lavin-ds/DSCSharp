@@ -72,5 +72,8 @@ Thumbs.db# Compiled source #
 ehthumbs.db
 Thumbs.db
 
+#Ignored Folders#
 ############
 .vscode
+obj
+bin
