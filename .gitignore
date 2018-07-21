@@ -71,3 +71,6 @@ Thumbs.db# Compiled source #
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+############
+.vscode

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSC", "DSC.csproj", "{A635A3A0-32D0-41E1-8EEC-922CB972632B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSC", "DSC\DSC.csproj", "{A635A3A0-32D0-41E1-8EEC-922CB972632B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSCTest", "DSCTest\DSCTest.csproj", "{F58B1277-EA89-4C04-BFC0-A1194410227D}"
 EndProject

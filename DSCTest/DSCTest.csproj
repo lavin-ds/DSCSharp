@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DSC.csproj" />
+    <ProjectReference Include="..\DSC\DSC.csproj" />
   </ItemGroup>
 
 </Project>
