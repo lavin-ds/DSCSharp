@@ -59,11 +59,12 @@ namespace DataStructuresCsharp
         {
             if(IsFull())
             {
-                throw new Exception();
+                throw new IndexOutOfRangeException();
             }
             else
             {
                 st.Top++;
+                st.Length++;
                 st.arr[st.Top] = data;
             }            
         }
@@ -76,6 +77,7 @@ namespace DataStructuresCsharp
             }
             else
             {
+                st.Length--;
                 return st.arr[st.Top--];
             }
         }
