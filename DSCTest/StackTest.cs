@@ -94,5 +94,26 @@ namespace DSCTest
             obj.Push(1);
             Assert.Equal(1,obj.StackLength());
         }
+
+
+        [Fact]
+        public void StackLL_Test()
+        {
+            var obj = new StackUsingLL();
+            obj.Push(1);
+            obj.Push(1);
+            obj.Push(1);
+            obj.Push(1);
+            obj.Push(1);
+            obj.Push(1);
+            obj.Push(1);
+            obj.Push(1);
+            obj.Push(1);
+            obj.Push(1);
+            obj.EmptyStack();
+            Assert.Equal(0,obj.StackLength());
+            obj.Push(1);
+            Assert.Equal(1,obj.StackLength());
+        }
     }
 }

@@ -165,5 +165,14 @@ namespace DataStructuresCsharp
             temp.next= temp.next.next;
 
         }
+
+        public int GetDataAtHead()
+        {
+            if(head == null)
+            {
+                throw new IndexOutOfRangeException();
+            }
+            return head.data;
+        }
     }
 }
