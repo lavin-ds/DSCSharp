@@ -1,6 +1,8 @@
 /***********************************************************
 Author          - lavinds
 Date Created    - 22-Jul-2018
+Description     - Class that contains the methods for 
+                  LinkedLists
 ************************************************************
 Sn      Author      Date            Comments
 ************************************************************

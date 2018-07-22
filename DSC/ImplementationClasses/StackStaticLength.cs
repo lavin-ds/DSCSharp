@@ -1,6 +1,8 @@
 ﻿/***********************************************************
 Author          - lavinds
 Date Created    - 07-Jul-2018
+Description     - Class that contains the methods for fixed 
+                  length Stack implementation
 ************************************************************
 Sn      Author      Date            Comments
 ************************************************************

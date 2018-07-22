@@ -1,6 +1,9 @@
 /***********************************************************
 Author          - lavinds
 Date Created    - 22-Jul-2018
+Description     - Class that contains the methods for Stack
+                  using LinkedLists as the data structure 
+                  for storage
 ************************************************************
 Sn      Author      Date            Comments
 ************************************************************
