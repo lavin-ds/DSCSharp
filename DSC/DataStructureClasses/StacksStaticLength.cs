@@ -1,11 +1,12 @@
-﻿/*********************************************************
+﻿/***********************************************************
 Author          - lavinds
 Date Created    - 07-Jul-2018
-**********************************************************
+************************************************************
 Sn      Author      Date            Comments
-**********************************************************
-1.      lavinds   21-Jul-2018       Initial draft of file 
-*********************************************************/
+************************************************************
+1.      lavinds     07-Jul-2018     Initial draft of file
+2.      lavinds     21-Jul-2018     Added empty stack method
+************************************************************/
 
 #region Namespaces
 using System;
@@ -13,23 +14,16 @@ using System;
 
 namespace DataStructuresCsharp
 {       
-    public class StackDT
+    public class StackStaticLength
     {
-        public int Length;
-        public int Top;
-        public int[] arr;
-    }
-
-    public class Stack
-    {
-        private StackDT st;
-        public Stack()
+        private Stack st;
+        public StackStaticLength()
         {
             CreateStack();   
         }        
         public void CreateStack()
         {
-            st = new StackDT();
+            st = new Stack();
             st.Top = -1;
             st.Length = 0;
             st.arr = new int[10];           
@@ -40,7 +34,7 @@ namespace DataStructuresCsharp
             return st.arr[st.Top];
         }
 
-        public int Length()
+        public int StackLength()
         {
             return st.Length;
         }
@@ -80,6 +74,12 @@ namespace DataStructuresCsharp
                 st.Length--;
                 return st.arr[st.Top--];
             }
+        }
+
+        public void EmptyStack()
+        {
+            st.Top = -1;
+            st.Length = 0;
         }
     }
 }

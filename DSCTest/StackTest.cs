@@ -20,7 +20,7 @@ namespace DSCTest
         [Fact]
         public void CreateStack_Test()
         {
-            Stack obj = new Stack();
+            StackStaticLength obj = new StackStaticLength();
             obj.Push(5);
             obj.Push(6);
             
@@ -30,7 +30,7 @@ namespace DSCTest
         [Fact]
         public void Pop_Test()
         {
-            Stack obj = new Stack();
+            StackStaticLength obj = new StackStaticLength();
             obj.Push(5);
             obj.Push(6);
             
@@ -41,7 +41,7 @@ namespace DSCTest
         [Fact]        
         public void IsStackFull_Test()
         {
-            var obj = new Stack();
+            var obj = new StackStaticLength();
             obj.Push(1);
             obj.Push(1);
             obj.Push(1);
@@ -54,5 +54,48 @@ namespace DSCTest
             obj.Push(1);
             Assert.Throws<System.IndexOutOfRangeException>(()=> obj.Push(1));
         }
+
+         [Fact]        
+        public void EmptyStack_Test()
+        {
+            var obj = new StackStaticLength();
+            obj.Push(1);
+            obj.Push(1);
+            obj.Push(1);
+            obj.Push(1);
+            obj.Push(1);
+            obj.Push(1);
+            obj.Push(1);
+            obj.Push(1);
+            obj.Push(1);
+            obj.Push(1);
+            obj.EmptyStack();
+            Assert.Equal(0,obj.StackLength());
+            obj.Push(1);
+            Assert.Equal(1,obj.StackLength());
+        }
+
+        [Fact]
+        public void StackRD_Test()
+        {
+            var obj = new StackRepeatedDouble();
+            obj.Push(1);
+            obj.Push(1);
+            obj.Push(1);
+            obj.Push(1);
+            obj.Push(1);
+            obj.Push(1);
+            obj.Push(1);
+            obj.Push(1);
+            obj.Push(1);
+            obj.Push(1);
+            obj.EmptyStack();
+            Assert.Equal(0,obj.StackLength());
+            obj.Push(1);
+            Assert.Equal(1,obj.StackLength());
+        }
+
+
+
     }
 }
