@@ -94,8 +94,5 @@ namespace DSCTest
             obj.Push(1);
             Assert.Equal(1,obj.StackLength());
         }
-
-
-
     }
 }
