@@ -106,14 +106,34 @@ namespace DSCTest
             obj.Push(1);
             obj.Push(1);
             obj.Push(1);
-            obj.Push(1);
-            obj.Push(1);
-            obj.Push(1);
+            obj.Push(5);
+            obj.Push(4);
+            obj.Push(3);
             obj.Push(1);
             obj.EmptyStack();
             Assert.Equal(0,obj.StackLength());
+            obj.Push(2);
+            Assert.Equal(1,obj.StackLength());                   
+        }
+
+         [Fact]
+        public void StackLLPushPop_Test()
+        {
+            var obj = new StackUsingLL();
+            obj.Push(10);
+            obj.Push(11);
+            obj.Push(12);
+            obj.Push(13);
+            obj.Push(14);
+            obj.Push(15);
+            obj.Push(5);
+            obj.Push(4);
+            obj.Push(3);
             obj.Push(1);
-            Assert.Equal(1,obj.StackLength());
+            Assert.Equal(1,obj.Pop());
+            Assert.Equal(3,obj.Pop());
+            Assert.Equal(4,obj.Pop());
+            Assert.Equal(5,obj.Pop());
         }
     }
 }

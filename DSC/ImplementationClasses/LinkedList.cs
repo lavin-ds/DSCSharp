@@ -30,7 +30,7 @@ namespace DataStructuresCsharp
                 var temp = new LinkedListNode();
                 
                 temp.data  = data;
-                temp.next= head.next;
+                temp.next= head;
 
                 head = temp;                 
             }

@@ -15,38 +15,38 @@ namespace DataStructuresCsharp
 {       
     public class StackUsingLL
     {    
-        private LinkedList st = new LinkedList();  
+        private LinkedList top = new LinkedList();  
 
         public int PeekTop()
         {
-            return st.GetDataAtHead();
+            return top.GetDataAtHead();
         }
 
         public int StackLength()
         {
-            return st.ListLength();
+            return top.ListLength();
         }
 
         public bool IsEmpty()
         {
-            return  (st.ListLength()==0);
+            return  (top.ListLength()==0);
         }
 
         public void Push (int data)
         {           
-                st.InsertAtHead(data);                   
+                top.InsertAtHead(data);                   
         }
 
         public int Pop()
         {
-            var headData = st.GetDataAtHead();
-            st.DeleteFirstNode();            
+            var headData = top.GetDataAtHead();
+            top.DeleteFirstNode();            
             return headData;
         }
 
         public void EmptyStack()
         {
-           st.DeleteList();
+           top.DeleteList();
         }
     }
 }
