@@ -13,5 +13,9 @@ using System;
 
 namespace DataStructuresCsharp
 {       
-  
+    public class LinkedListNode
+    {
+        public int data;
+        public LinkedListNode next;
+    }
 }
