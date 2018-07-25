@@ -176,5 +176,21 @@ namespace DataStructuresCsharp
             }
             return head.data;
         }
+
+        public int MaxElement()
+        {
+            var max = -1;
+            var temp = head;
+            while (temp != null)
+            {
+                if(temp.data >max)
+                {
+                    max = temp.data;
+                }
+                temp = temp.next;
+            }
+
+            return max;
+        }
     }
 }

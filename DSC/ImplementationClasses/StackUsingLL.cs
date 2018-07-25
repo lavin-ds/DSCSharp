@@ -20,6 +20,7 @@ namespace DataStructuresCsharp
     {    
         private LinkedList top = new LinkedList();  
 
+        private int max = -1;
         public int PeekTop()
         {
             return top.GetDataAtHead();
@@ -37,19 +38,29 @@ namespace DataStructuresCsharp
 
         public void Push (int data)
         {           
-                top.InsertAtHead(data);                   
+            if(data>max)
+            {
+                max = data;
+            }
+            top.InsertAtHead(data);                   
         }
 
         public int Pop()
         {
             var headData = top.GetDataAtHead();
-            top.DeleteFirstNode();            
+            top.DeleteFirstNode();           
+            max = top.MaxElement(); 
             return headData;
         }
 
         public void EmptyStack()
         {
            top.DeleteList();
+        }
+
+        public int MaxStack()
+        {
+            return max; 
         }
     }
 }
