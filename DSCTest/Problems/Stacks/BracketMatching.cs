@@ -30,9 +30,9 @@ namespace DSCTest.Problems.Stacks
 {
     public class BracketMatching
     {
-        public bool IsBalanced(string s)
+        public string IsBalanced(string s)
         {
-            StackUsingLL obj = new StackUsingLL();
+         StackUsingLL obj = new StackUsingLL();
 
             for(int i = 0;i<s.Length;i++)
             {
@@ -42,12 +42,18 @@ namespace DSCTest.Problems.Stacks
                 }
                 else 
                 {
+                    if(obj.StackLength()>0)
+                    {
                     switch(s[i])
                     {
                         case '}': if(obj.PeekTop() == '{')
                                     {
                                         obj.Pop();
-                                    } 
+                                    }   
+                                 else
+                                    {
+                                    return "NO";                                   
+                                    }
                                     break;
                                     
 
@@ -55,13 +61,26 @@ namespace DSCTest.Problems.Stacks
                                     {
                                         obj.Pop();
                                     } 
+                             else
+                                    {
+                                    return "NO";                                   
+                                    }
                                     break;
 
                         case ')':   if(obj.PeekTop() == '(')
                                     {
                                         obj.Pop();
                                     } 
+                             else
+                                    {
+                                    return "NO";                                   
+                                    }
                                     break;
+                    }
+                    }
+                    else
+                    {
+                        return "NO";
                     }
 
                 }
@@ -70,11 +89,11 @@ namespace DSCTest.Problems.Stacks
 
             if(obj.StackLength() == 0)
             {
-                return true;
+                return "YES";
             }
-            else return false;
+            else return "NO";
 
-        }
+        }   
 
         [Fact]
         public void TestWrapper()
@@ -82,7 +101,7 @@ namespace DSCTest.Problems.Stacks
             string s = "([{}])";
             var result = IsBalanced(s);
 
-            Assert.Equal(true, result);
+            Assert.Equal("YES", result);
         }
     }
 }
