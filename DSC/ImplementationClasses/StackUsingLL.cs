@@ -21,6 +21,7 @@ namespace DataStructuresCsharp
         private LinkedList top = new LinkedList();  
 
         private int max = -1;
+        private int sum = 0;
         public int PeekTop()
         {
             return top.GetDataAtHead();
@@ -38,6 +39,7 @@ namespace DataStructuresCsharp
 
         public void Push (int data)
         {           
+            sum +=data;
             if(data>max)
             {
                 max = data;
@@ -50,6 +52,7 @@ namespace DataStructuresCsharp
             var headData = top.GetDataAtHead();
             top.DeleteFirstNode();           
             max = top.MaxElement(); 
+            sums = sum - headData;
             return headData;
         }
 
@@ -61,6 +64,11 @@ namespace DataStructuresCsharp
         public int MaxStack()
         {
             return max; 
+        }
+
+        public int SumStack()
+        {
+            return sum;
         }
     }
 }
