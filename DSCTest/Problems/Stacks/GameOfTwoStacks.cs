@@ -29,58 +29,49 @@ using Xunit;
 namespace DSCTest.Problems.Stacks
 {
     public class GameOfTwoStacks
-    {
- 
-    static int TwoStacks(int x, int[] a, int[] b) 
-    {
-        int sum1=0,sum2=0;
-        int sum = 0,count =0;
-        var obj1 = new StackUsingLL();
-        for (int i=a.Length-1;i>=0;i--)
+    { 
+        static int TwoStacks(int x, int[] a, int[] b) 
         {
-            obj1.Push(a[i]);
-        }
-
-        var obj2 = new StackUsingLL();
-        for (int i=b.Length-1;i>=0;i--)
-        {
-            obj2.Push(b[i]);
-        }
-
-        while(true)
-        {
-            sum1 = sum + obj1.PeekTop();
-            sum2 = sum + obj2.PeekTop();
-            if(sum1<=x && sum1 > sum2)
+            var obj1 = new StackUsingLL();
+            var sumStack = new StackUsingLL();
+            for (int i=a.Length-1;i>=0;i--)
             {
-                sum += obj1.Pop();
-                sum1 = sum;
-                sum2 = sum;
-                count++;
+                obj1.Push(a[i]);
             }
-            else if( sum2<=x)
+
+            var obj2 = new StackUsingLL();
+            for (int i=b.Length-1;i>=0;i--)
             {
-                sum += obj2.Pop();
-                sum1 = sum;
-                sum2 = sum;
-                count++;
+                obj2.Push(b[i]);
             }
-            else if(sum1 <=x)
+
+            while(sumStack.SumStack()+obj1.PeekTop()<=x)
             {
-                sum += obj1.Pop();
-                sum1 = sum;
-                sum2 = sum;
-                count++;
+                sumStack.Push(obj1.Pop());
             }
-            else
+
+            
+            int countStack1 = sumStack.StackLength();
+            int sum = sumStack.SumStack();
+            int max = countStack1;
+            int countStack2 = 0;
+            while(obj2.StackLength()!=0 && sumStack.StackLength() >0)
             {
-                break;
-            }            
+                sum = sum + obj2.Pop();
+                countStack2++;
+                if(sum>x)
+                {
+                    sum = sum - sumStack.Pop();
+                    countStack1--;
+                }
+                if(sum<=x && countStack1+countStack2>max)
+                {
+                    max = countStack1+countStack2;
+                }
+            }
+            return max;
         }
-
-        return count;
-    }
-
+        
         [Fact]
         public void TestProg()
         {       
@@ -108,5 +99,39 @@ namespace DSCTest.Problems.Stacks
             Assert.Equal(6,c);
                         
         }
+
+        //         sum1 = sum + obj1.PeekTop();
+    //         sum2 = sum + obj2.PeekTop();
+    //         if(sum1<=x && sum1 > sum2)
+    //         {
+    //             sum += obj1.Pop();
+    //             sum1 = sum;
+    //             sum2 = sum;
+    //             count++;
+    //         }
+    //         else if( sum2<=x)
+    //         {
+    //             sum += obj2.Pop();
+    //             sum1 = sum;
+    //             sum2 = sum;
+    //             count++;
+    //         }
+    //         else if(sum1 <=x)
+    //         {
+    //             sum += obj1.Pop();
+    //             sum1 = sum;
+    //             sum2 = sum;
+    //             count++;
+    //         }
+    //         else
+    //         {
+    //             break;
+    //         }            
+    //     }
+
+    //     return count;
+    // }
+
+    //   
     }
 }
