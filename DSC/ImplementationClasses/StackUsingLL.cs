@@ -52,7 +52,7 @@ namespace DataStructuresCsharp
             var headData = top.GetDataAtHead();
             top.DeleteFirstNode();           
             max = top.MaxElement(); 
-            sums = sum - headData;
+            sum = sum - headData;
             return headData;
         }
 
