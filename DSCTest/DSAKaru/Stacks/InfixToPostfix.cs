@@ -30,9 +30,22 @@ namespace DSCTest
             return "";
         }
 
+        public int CheckPrecedence(char sym)
+        {
+            switch(sym)
+            {
+                case '(':return 10;
+                case '*':return 9;
+                case '/': return 9;
+                case '+':return 8;
+                case '-':return 8;
+                default: return 0;
+            }
+        }
+
         public void TestWrap()
         {
-            string infix = "A+B*(C-D)";
+            string infix = "(A+B)*(C-D)";
 
             var result = ConvertInfixToPostfix(infix);
 
