@@ -84,8 +84,6 @@ namespace DSCTest
         {
             switch(sym)
             {
-                case '(':
-                    return 10;
                 case '*':
                 case '/': 
                     return 9;
