@@ -7,6 +7,8 @@ Sn      Author      Date            Comments
 1.      lavinds   21-Jul-2018       Initial draft of file 
 *********************************************************/
 
+/* Converting from Infix to Postfix notation */
+
 #region Namespaces
 using System;
 using System.Text;
@@ -24,25 +26,77 @@ namespace DSCTest
             StringBuilder result = new StringBuilder();
             for(int i = 0;i<infix.Length;i++)
             {
-                
+                //If scanned character is an operand
+                if(IsOperand(infix[i]))
+                {
+                    result.Append(infix[i]);
+                }
+
+                //If scanned character is '(', push it to stack
+                else if(infix[i] == '(')
+                {
+                    staging.Push('(');
+                }
+
+                //If scanned character is ')', pop all  operators from stack untill '(' is found
+                else if(infix[i] == ')')
+                {
+                    while(!staging.IsEmpty() && staging.PeekTop() != '(')
+                    {
+                        result.Append(Convert.ToChar(staging.Pop()));
+                    }
+                    //Invalid string check
+                    if(!staging.IsEmpty() && staging.PeekTop() != '(')
+                        {
+                            return null;
+                        }
+                    else
+                    {
+                        staging.Pop();
+                    }
+                }
+
+                //If operator
+                else
+                {
+                    while(!staging.IsEmpty() && (CheckPrecedence(infix[i]) <= CheckPrecedence(Convert.ToChar(staging.PeekTop()))))
+                    {
+                        result.Append(Convert.ToChar(staging.Pop()));
+                    }
+                    staging.Push(infix[i]);
+                }
             }
 
-            return "";
+            while(!staging.IsEmpty())
+            {
+                result.Append(Convert.ToChar(staging.Pop()));
+            }
+
+            return result.ToString();
         }
 
+
+        public bool  IsOperand(char sym)
+        {
+            return (sym>='a' && sym <='z') || (sym>='A' && sym <='Z');
+        }
         public int CheckPrecedence(char sym)
         {
             switch(sym)
             {
-                case '(':return 10;
-                case '*':return 9;
-                case '/': return 9;
-                case '+':return 8;
-                case '-':return 8;
+                case '(':
+                    return 10;
+                case '*':
+                case '/': 
+                    return 9;
+                case '+':
+                case '-':
+                    return 8;
                 default: return 0;
             }
         }
 
+        [Fact]
         public void TestWrap()
         {
             string infix = "(A+B)*(C-D)";
