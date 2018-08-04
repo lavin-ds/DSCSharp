@@ -16,7 +16,7 @@ namespace DataStructuresCsharp
     public class DoublyLinkedListNode
     {
         public int data;
-        public LinkedListNode next;
-        public LinkedListNode previous;
+        public DoublyLinkedListNode next;
+        public DoublyLinkedListNode previous;
     }
 }
