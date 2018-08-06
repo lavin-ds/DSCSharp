@@ -21,16 +21,16 @@ namespace DataStructuresCsharp
 
         private BinaryTreeNode head;
 
-        List<BinaryTreeNode> resultListPreOrderRecursive = new List<BinaryTreeNode>();
+        //List<BinaryTreeNode> resultListPreOrderRecursive = new List<BinaryTreeNode>();
 
         public void TraverseListPreOrderRecursive(BinaryTreeNode root)
         {            
-            if(root)
-            {
-                resultListPreOrderRecursive.Add(root.data);
-                TraverseListPreOrderRecursive(root.left);
-                TraverseListPreOrderRecursive(root.right);
-            }
+            // if(root)
+            // {
+            //     resultListPreOrderRecursive.Add(root.data);
+            //     TraverseListPreOrderRecursive(root.left);
+            //     TraverseListPreOrderRecursive(root.right);
+            // }
         }
 
         // public void InsertElement(int data)
