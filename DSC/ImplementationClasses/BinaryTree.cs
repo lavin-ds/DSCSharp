@@ -37,13 +37,19 @@ namespace DataStructuresCsharp
             }
         }
 
+        public void TraverseListPreOrderNonRecursive(BinaryTreeNode root)
+        {
+
+        }
+
+
         public void TraverseListInOrderRecursive(BinaryTreeNode root)
         {            
             if(root!=null)
             {            
-                TraverseListPreOrderRecursive(root.left);
-                resultListPreOrderRecursive.InsertAtEnd(root.data);
-                TraverseListPreOrderRecursive(root.right);
+                TraverseListInOrderRecursive(root.left);
+                resultListInOrderRecursive.InsertAtEnd(root.data);
+                TraverseListInOrderRecursive(root.right);
             }
         }
 
@@ -51,11 +57,16 @@ namespace DataStructuresCsharp
         {            
             if(root!=null)
             {            
-                TraverseListPreOrderRecursive(root.left);            
-                TraverseListPreOrderRecursive(root.right);
-                resultListPreOrderRecursive.InsertAtEnd(root.data);
+                TraverseListPostOrderRecursive(root.left);            
+                TraverseListPostOrderRecursive(root.right);
+                resultListPostOrderRecursive.InsertAtEnd(root.data);
             }
         }
+
+
+
+
+
 
         // public void InsertElement(int data)
         // {
