@@ -23,6 +23,8 @@ namespace DataStructuresCsharp
         private BinaryTreeNode head;
 
         LinkedList resultListPreOrderRecursive = new LinkedList();
+        LinkedList resultListInOrderRecursive = new LinkedList();
+        LinkedList resultListPostOrderRecursive = new LinkedList();
 
         public void TraverseListPreOrderRecursive(BinaryTreeNode root)
         {            
@@ -36,22 +38,22 @@ namespace DataStructuresCsharp
 
         public void TraverseListInOrderRecursive(BinaryTreeNode root)
         {            
-            // if(root)
-            // {            
-            //     TraverseListPreOrderRecursive(root.left);
-            //     resultListPreOrderRecursive.Add(root.data);
-            //     TraverseListPreOrderRecursive(root.right);
-            // }
+            if(root!=null)
+            {            
+                TraverseListPreOrderRecursive(root.left);
+                resultListPreOrderRecursive.InsertAtEnd(root.data);
+                TraverseListPreOrderRecursive(root.right);
+            }
         }
 
         public void TraverseListPostOrderRecursive(BinaryTreeNode root)
         {            
-            // if(root)
-            // {            
-            //     TraverseListPreOrderRecursive(root.left);            
-            //     TraverseListPreOrderRecursive(root.right);
-            //     resultListPreOrderRecursive.Add(root.data);
-            // }
+            if(root!=null)
+            {            
+                TraverseListPreOrderRecursive(root.left);            
+                TraverseListPreOrderRecursive(root.right);
+                resultListPreOrderRecursive.InsertAtEnd(root.data);
+            }
         }
 
         // public void InsertElement(int data)
