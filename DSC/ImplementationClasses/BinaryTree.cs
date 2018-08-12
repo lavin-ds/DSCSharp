@@ -11,6 +11,7 @@ Sn      Author      Date            Comments
 
 #region Namespaces
 using System; 
+using DataStructuresCsharp;
 #endregion
 
 namespace DataStructuresCsharp
@@ -21,16 +22,16 @@ namespace DataStructuresCsharp
 
         private BinaryTreeNode head;
 
-        //List<BinaryTreeNode> resultListPreOrderRecursive = new List<BinaryTreeNode>();
+        LinkedList resultListPreOrderRecursive = new LinkedList();
 
         public void TraverseListPreOrderRecursive(BinaryTreeNode root)
         {            
-            // if(root)
-            // {
-            //     resultListPreOrderRecursive.Add(root.data);
-            //     TraverseListPreOrderRecursive(root.left);
-            //     TraverseListPreOrderRecursive(root.right);
-            // }
+            if(root!=null)
+            {
+                resultListPreOrderRecursive.InsertAtEnd(root.data);
+                TraverseListPreOrderRecursive(root.left);
+                TraverseListPreOrderRecursive(root.right);
+            }
         }
 
         public void TraverseListInOrderRecursive(BinaryTreeNode root)
