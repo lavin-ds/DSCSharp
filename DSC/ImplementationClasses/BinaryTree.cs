@@ -43,7 +43,6 @@ namespace DataStructuresCsharp
 
         }
 
-
         public void TraverseListInOrderRecursive(BinaryTreeNode root)
         {            
             if(root!=null)
