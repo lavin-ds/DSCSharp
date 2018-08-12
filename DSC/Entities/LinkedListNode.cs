@@ -18,4 +18,10 @@ namespace DataStructuresCsharp
         public int data;
         public LinkedListNode next;
     }
+
+    public class LinkedListNodeForBinTree
+    {
+        public BinaryTreeNode data;
+        public LinkedListNodeForBinTree next;
+    }
 }

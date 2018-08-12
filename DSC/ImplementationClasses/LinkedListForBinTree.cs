@@ -1,12 +1,12 @@
 /***********************************************************
 Author          - lavinds
-Date Created    - 22-Jul-2018
+Date Created    - 12-Aug-2018
 Description     - Class that contains the methods for 
                   LinkedLists
 ************************************************************
 Sn      Author      Date            Comments
 ************************************************************
-1.      lavinds     22-Jul-2018     Initial draft of file
+1.      lavinds     12-Aug-2018     Initial draft of file
 ************************************************************/
 
 #region Namespaces
@@ -15,21 +15,21 @@ using System;
 
 namespace DataStructuresCsharp
 {
-    public class LinkedList
+    public class LinkedListForBinTree
     {
-        private LinkedListNode head;
+        private LinkedListNodeForBinTree head;
 
-        public void InsertAtHead(int data)
+        public void InsertAtHead(BinaryTreeNode data)
         {
             if(head == null)
             {
-                head = new LinkedListNode();
+                head = new LinkedListNodeForBinTree();
                 head.next = null;
                 head.data = data; 
             }
             else 
             {
-                var temp = new LinkedListNode();
+                var temp = new LinkedListNodeForBinTree();
                 
                 temp.data  = data;
                 temp.next= head;
@@ -38,7 +38,7 @@ namespace DataStructuresCsharp
             }
         }
 
-        public void InsertInMiddle(int data, int position)
+        public void InsertInMiddle(BinaryTreeNode data, int position)
         {
             if (head == null)
             {
@@ -58,15 +58,15 @@ namespace DataStructuresCsharp
                     throw new IndexOutOfRangeException();
                 }
             }
-            var newNode = new LinkedListNode();
+            var newNode = new LinkedListNodeForBinTree();
             newNode.next = temp.next;
             newNode.data = data;
             temp.next = newNode;
         }
 
-        public void InsertAtEnd(int data)
+        public void InsertAtEnd(BinaryTreeNode data)
         {
-            var newNode = new LinkedListNode();
+            var newNode = new LinkedListNodeForBinTree();
             newNode.next = null;
             newNode.data = data;
 
@@ -168,7 +168,7 @@ namespace DataStructuresCsharp
 
         }
 
-        public int GetDataAtHead()
+        public BinaryTreeNode GetDataAtHead()
         {
             if(head == null)
             {
@@ -183,9 +183,9 @@ namespace DataStructuresCsharp
             var temp = head;
             while (temp != null)
             {
-                if(Convert.ToInt32(temp.data) > max)
+                if(temp.data.data > max)
                 {
-                    max = Convert.ToInt32(temp.data);
+                    max = temp.data.data;
                 }
                 temp = temp.next;
             }

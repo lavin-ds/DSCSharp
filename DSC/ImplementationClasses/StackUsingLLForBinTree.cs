@@ -1,13 +1,13 @@
 /***********************************************************
 Author          - lavinds
-Date Created    - 22-Jul-2018
+Date Created    - 12-Aug-2018
 Description     - Class that contains the methods for Stack
                   using LinkedLists as the data structure 
                   for storage
 ************************************************************
 Sn      Author      Date            Comments
 ************************************************************
-1.      lavinds     22-Jul-2018     Initial draft of file
+1.      lavinds     12-Aug-2018     Initial draft of file
 ************************************************************/
 
 #region Namespaces
@@ -16,12 +16,12 @@ using System;
 
 namespace DataStructuresCsharp
 {       
-    public class StackUsingLL
+    public class StackUsingLLForBinTree
     {    
-        private LinkedList top = new LinkedList();  
+        private LinkedListForBinTree top = new LinkedListForBinTree();  
         private int max = -1;
         private int sum = 0;
-        public int PeekTop()
+        public BinaryTreeNode PeekTop()
         {
             return top.GetDataAtHead();
         }
@@ -36,22 +36,22 @@ namespace DataStructuresCsharp
             return  (top.ListLength()==0);
         }
 
-        public void Push (int data)
+        public void Push (BinaryTreeNode data)
         {           
-            sum +=data;
-            if(data>max)
+            sum +=data.data;
+            if(data.data>max)
             {
-                max = data;
+                max = data.data;
             }
             top.InsertAtHead(data);                   
         }
 
-        public int Pop()
+        public BinaryTreeNode Pop()
         {
             var headData = top.GetDataAtHead();
             top.DeleteFirstNode();           
             max = top.MaxElement(); 
-            sum = sum - headData;
+            sum = sum - headData.data;
             return headData;
         }
 

@@ -18,14 +18,14 @@ namespace DataStructuresCsharp
 {       
     public class StackStaticLength
     {
-        private Stack st;
+        private Stack<int> st;
         public StackStaticLength()
         {
             CreateStack();   
         }        
         public void CreateStack()
         {
-            st = new Stack();
+            st = new Stack<int>();
             st.Top = -1;
             st.Length = 0;
             st.arr = new int[10];           
