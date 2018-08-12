@@ -49,8 +49,8 @@ namespace DataStructuresCsharp
         }
 
         public void TraverseListPreOrderNonRecursive(BinaryTreeNode root)
-        {
-            StackUsingLLForBinTree
+        { 
+            StackUsingLLForBinTree stage = new StackUsingLLForBinTree();
             while(true)
             {
                 while(root!=null)

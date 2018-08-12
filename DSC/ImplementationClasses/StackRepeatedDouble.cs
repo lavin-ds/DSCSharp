@@ -18,14 +18,14 @@ namespace DataStructuresCsharp
 {       
     public class StackRepeatedDouble
     {
-        private Stack<int> st;
+        private Stack st;
         public StackRepeatedDouble()
         {
             CreateStack();   
         }        
         public void CreateStack()
         {
-            st = new Stack<int>();
+            st = new Stack();
             st.Top = -1;
             st.Length = 0;
             st.arr = new int[1];           
