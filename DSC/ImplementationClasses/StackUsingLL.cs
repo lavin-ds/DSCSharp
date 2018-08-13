@@ -16,9 +16,9 @@ using System;
 
 namespace DataStructuresCsharp
 {       
-    public class StackUsingLL
+    public class StackUsingLL<T>
     {    
-        private LinkedList top = new LinkedList();  
+        private LinkedList<T> top = new LinkedList<T>();  
         private int max = -1;
         private int sum = 0;
         public int PeekTop()
@@ -36,12 +36,12 @@ namespace DataStructuresCsharp
             return  (top.ListLength()==0);
         }
 
-        public void Push (int data)
-        {           
-            sum +=data;
-            if(data>max)
+        public void Push (T data)
+        {                       
+            sum += data.GetValueAtNode();
+            if(data.GetValueAtNode()>max)
             {
-                max = data;
+                max = data.GetValueAtNode();
             }
             top.InsertAtHead(data);                   
         }

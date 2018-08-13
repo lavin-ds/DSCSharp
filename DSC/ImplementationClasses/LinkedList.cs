@@ -175,7 +175,7 @@ namespace DataStructuresCsharp
             {
                 throw new IndexOutOfRangeException();
             }
-            return head.GetValueAtDataNode();
+            return head.data.GetValueAtNode();
         }
 
         public int MaxElement()
@@ -184,9 +184,9 @@ namespace DataStructuresCsharp
             var temp = head;
             while (temp != null)
             {
-                if(temp.GetValueAtDataNode() > max)
+                if(temp.data.GetValueAtNode() > max)
                 {
-                    max = temp.GetValueAtDataNode();
+                    max = temp.data.GetValueAtNode();
                 }
                 temp = temp.next;
             }
