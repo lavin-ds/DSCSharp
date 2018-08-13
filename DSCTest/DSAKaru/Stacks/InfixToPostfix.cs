@@ -22,7 +22,7 @@ namespace DSCTest
     {
         public string ConvertInfixToPostfix(string infix)
         {
-            StackUsingLL staging = new StackUsingLL();
+            StackUsingLL<int> staging = new StackUsingLL<int>();
             StringBuilder result = new StringBuilder();
             for(int i = 0;i<infix.Length;i++)
             {

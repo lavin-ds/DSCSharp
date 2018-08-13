@@ -16,58 +16,58 @@ using System;
 
 namespace DataStructuresCsharp
 {       
-    public class StackUsingLLForBinTree
-    {    
-        private LinkedListForBinTree top = new LinkedListForBinTree();  
-        private int max = -1;
-        private int sum = 0;
-        public BinaryTreeNode PeekTop()
-        {
-            return top.GetDataAtHead();
-        }
+    // public class StackUsingLLForBinTree
+    // {    
+    //     private LinkedListForBinTree top = new LinkedListForBinTree();  
+    //     private int max = -1;
+    //     private int sum = 0;
+    //     public BinaryTreeNode PeekTop()
+    //     {
+    //         return top.GetDataAtHead();
+    //     }
 
-        public int StackLength()
-        {
-            return top.ListLength();
-        }
+    //     public int StackLength()
+    //     {
+    //         return top.ListLength();
+    //     }
 
-        public bool IsEmpty()
-        {
-            return  (top.ListLength()==0);
-        }
+    //     public bool IsEmpty()
+    //     {
+    //         return  (top.ListLength()==0);
+    //     }
 
-        public void Push (BinaryTreeNode data)
-        {           
-            sum +=data.data;
-            if(data.data>max)
-            {
-                max = data.data;
-            }
-            top.InsertAtHead(data);                   
-        }
+    //     public void Push (BinaryTreeNode data)
+    //     {           
+    //         sum +=data.data;
+    //         if(data.data>max)
+    //         {
+    //             max = data.data;
+    //         }
+    //         top.InsertAtHead(data);                   
+    //     }
 
-        public BinaryTreeNode Pop()
-        {
-            var headData = top.GetDataAtHead();
-            top.DeleteFirstNode();           
-            max = top.MaxElement(); 
-            sum = sum - headData.data;
-            return headData;
-        }
+    //     public BinaryTreeNode Pop()
+    //     {
+    //         var headData = top.GetDataAtHead();
+    //         top.DeleteFirstNode();           
+    //         max = top.MaxElement(); 
+    //         sum = sum - headData.data;
+    //         return headData;
+    //     }
 
-        public void EmptyStack()
-        {
-           top.DeleteList();
-        }
+    //     public void EmptyStack()
+    //     {
+    //        top.DeleteList();
+    //     }
 
-        public int MaxStack()
-        {
-            return max; 
-        }
+    //     public int MaxStack()
+    //     {
+    //         return max; 
+    //     }
 
-        public int SumStack()
-        {
-            return sum;
-        }
-    }
+    //     public int SumStack()
+    //     {
+    //         return sum;
+    //     }
+    // }
 }
