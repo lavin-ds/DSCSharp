@@ -32,7 +32,7 @@ namespace DSCTest.Problems.Stacks
     {
         public string IsBalanced(string s)
         {
-         StackUsingLL obj = new StackUsingLL();
+         StackUsingLL<int> obj = new StackUsingLL<int>();
 
             for(int i = 0;i<s.Length;i++)
             {

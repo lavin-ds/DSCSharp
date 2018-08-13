@@ -23,7 +23,7 @@ namespace DataStructuresCsharp
         private int sum = 0;
         public int PeekTop()
         {
-            return top.GetDataAtHead();
+            return top.GetDataAtHead().GetValueAtNode();
         }
 
         public int StackLength()

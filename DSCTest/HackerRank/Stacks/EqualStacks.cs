@@ -32,21 +32,21 @@ namespace DSCTest.Problems.Stacks
 
         public int EqualStacks_Method(int[] h1, int[] h2, int[] h3)
         {
-            StackUsingLL obj1= new StackUsingLL();
+            StackUsingLL<int> obj1= new StackUsingLL<int>();
             
             for(int i = h1.Length-1;i>=0;i--)
             {
                 obj1.Push(h1[i]);
             }
             
-            StackUsingLL obj2= new StackUsingLL();
+            StackUsingLL<int> obj2= new StackUsingLL<int>();
             
             for(int i = h2.Length-1;i>=0;i--)
             {
                 obj2.Push(h2[i]);
             }
             
-            StackUsingLL obj3= new StackUsingLL();
+            StackUsingLL<int> obj3= new StackUsingLL<int>();
             
             for(int i = h3.Length-1;i>=0;i--)
             {

@@ -32,14 +32,14 @@ namespace DSCTest.Problems.Stacks
     { 
         static int TwoStacks(int x, int[] a, int[] b) 
         {
-            var obj1 = new StackUsingLL();
-            var sumStack = new StackUsingLL();
+            var obj1 = new StackUsingLL<int>();
+            var sumStack = new StackUsingLL<int>();
             for (int i=a.Length-1;i>=0;i--)
             {
                 obj1.Push(a[i]);
             }
 
-            var obj2 = new StackUsingLL();
+            var obj2 = new StackUsingLL<int>();
             for (int i=b.Length-1;i>=0;i--)
             {
                 obj2.Push(b[i]);

@@ -33,7 +33,7 @@ namespace DSCTest.Problems.Stacks
         {      
             
             var max = 0;
-            StackUsingLL obj = new StackUsingLL();
+            StackUsingLL<int> obj = new StackUsingLL<int>();
             
             string s = "1 94";
             string t = "3";
