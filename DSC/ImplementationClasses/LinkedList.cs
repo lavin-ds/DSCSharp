@@ -169,13 +169,13 @@ namespace DataStructuresCsharp
 
         }
 
-        public int GetDataAtHead()
+        public T GetDataAtHead()
         {
             if(head == null)
             {
                 throw new IndexOutOfRangeException();
             }
-            return head.data.GetValueAtNode();
+            return head.data;
         }
 
         public int MaxElement()

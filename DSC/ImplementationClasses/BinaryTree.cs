@@ -25,17 +25,17 @@ namespace DataStructuresCsharp
 
         private BinaryTreeNode head;
 
-        LinkedList resultListPreOrderRecursive = new LinkedList();
+        LinkedList<int> resultListPreOrderRecursive = new LinkedList<int>();
 
-        LinkedList resultListInOrderRecursive = new LinkedList();
+        LinkedList<int> resultListInOrderRecursive = new LinkedList<int>();
 
-        LinkedList resultListPostOrderRecursive = new LinkedList();
+        LinkedList<int> resultListPostOrderRecursive = new LinkedList<int>();
 
-        LinkedList resultListPreOrderNonRecursive = new LinkedList();
+        LinkedList<int> resultListPreOrderNonRecursive = new LinkedList<int>();
 
-        LinkedList resultListInOrderNonRecursive = new LinkedList();
+        LinkedList<int> resultListInOrderNonRecursive = new LinkedList<int>();
 
-        LinkedList resultListPostOrderNonRecursive = new LinkedList();
+        LinkedList<int> resultListPostOrderNonRecursive = new LinkedList<int>();
         #endregion
         
         public void TraverseListPreOrderRecursive(BinaryTreeNode root)
@@ -50,7 +50,7 @@ namespace DataStructuresCsharp
 
         public void TraverseListPreOrderNonRecursive(BinaryTreeNode root)
         { 
-            StackUsingLLForBinTree stage = new StackUsingLLForBinTree();
+            StackUsingLL<BinaryTreeNode> stage = new StackUsingLL<BinaryTreeNode>();
             while(true)
             {
                 while(root!=null)

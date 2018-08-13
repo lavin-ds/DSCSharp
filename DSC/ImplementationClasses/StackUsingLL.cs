@@ -46,12 +46,12 @@ namespace DataStructuresCsharp
             top.InsertAtHead(data);                   
         }
 
-        public int Pop()
+        public T Pop()
         {
             var headData = top.GetDataAtHead();
             top.DeleteFirstNode();           
             max = top.MaxElement(); 
-            sum = sum - headData;
+            sum = sum - headData.GetValueAtNode();
             return headData;
         }
 
