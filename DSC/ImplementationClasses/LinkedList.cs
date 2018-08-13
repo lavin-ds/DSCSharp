@@ -15,21 +15,21 @@ using System;
 
 namespace DataStructuresCsharp
 {
-    public class LinkedList
+    public class LinkedList<T>
     {
-        private LinkedListNode head;
+        private LinkedListNode<T> head;
 
-        public void InsertAtHead(int data)
+        public void InsertAtHead(T data)
         {
             if(head == null)
             {
-                head = new LinkedListNode();
+                head = new LinkedListNode<T>();
                 head.next = null;
                 head.data = data; 
             }
             else 
             {
-                var temp = new LinkedListNode();
+                var temp = new LinkedListNode<T>();
                 
                 temp.data  = data;
                 temp.next= head;
@@ -38,7 +38,7 @@ namespace DataStructuresCsharp
             }
         }
 
-        public void InsertInMiddle(int data, int position)
+        public void InsertInMiddle(T data, int position)
         {
             if (head == null)
             {
@@ -58,15 +58,15 @@ namespace DataStructuresCsharp
                     throw new IndexOutOfRangeException();
                 }
             }
-            var newNode = new LinkedListNode();
+            var newNode = new LinkedListNode<T>();
             newNode.next = temp.next;
             newNode.data = data;
             temp.next = newNode;
         }
 
-        public void InsertAtEnd(int data)
+        public void InsertAtEnd(T data)
         {
-            var newNode = new LinkedListNode();
+            var newNode = new LinkedListNode<T>();
             newNode.next = null;
             newNode.data = data;
 
@@ -174,7 +174,7 @@ namespace DataStructuresCsharp
             {
                 throw new IndexOutOfRangeException();
             }
-            return head.data;
+            return head.GetValueAtDataNode();
         }
 
         public int MaxElement()
@@ -183,9 +183,9 @@ namespace DataStructuresCsharp
             var temp = head;
             while (temp != null)
             {
-                if(Convert.ToInt32(temp.data) > max)
+                if(temp.GetValueAtDataNode() > max)
                 {
-                    max = Convert.ToInt32(temp.data);
+                    max = temp.GetValueAtDataNode();
                 }
                 temp = temp.next;
             }
