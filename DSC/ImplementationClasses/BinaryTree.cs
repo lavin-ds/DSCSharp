@@ -62,6 +62,12 @@ namespace DataStructuresCsharp
                         root = root.left;
                     }
                 }
+                if(stage.IsEmpty())
+                {
+                    break;
+                }
+                root = stage.Pop();
+                root = root.right;
             }
         }
 
@@ -84,11 +90,6 @@ namespace DataStructuresCsharp
                 resultListPostOrderRecursive.InsertAtEnd(root.data);
             }
         }
-
-
-
-
-
 
         // public void InsertElement(int data)
         // {
