@@ -20,7 +20,7 @@ namespace DSCTest
         [Fact]
         public void CreateList_Test()
         {
-            var obj = new LinkedList();
+            var obj = new LinkedList<int>();
             obj.InsertAtHead(4);
             Assert.Equal(1, obj.ListLength());
         }
@@ -28,7 +28,7 @@ namespace DSCTest
         [Fact]
         public void InsertIntoListAtEnd_Test()
         {
-            var obj = new LinkedList();
+            var obj = new LinkedList<int>();
             obj.InsertAtHead(4);
             Assert.Equal(1, obj.ListLength());
             obj.InsertAtEnd(5);
@@ -38,7 +38,7 @@ namespace DSCTest
         [Fact]
         public void InsertIntoListAtPos_Test()
         {
-            var obj = new LinkedList();
+            var obj = new LinkedList<int>();
             obj.InsertAtHead(4);           
             obj.InsertAtEnd(5);
             obj.InsertAtEnd(8);
@@ -51,7 +51,7 @@ namespace DSCTest
         [Fact]
         public void DeleteFromEnd_Test()
         {
-            var obj = new LinkedList();
+            var obj = new LinkedList<int>();
             obj.InsertAtHead(4);           
             obj.InsertAtEnd(5);
             obj.InsertAtEnd(8);

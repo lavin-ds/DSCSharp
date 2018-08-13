@@ -99,7 +99,7 @@ namespace DSCTest
         [Fact]
         public void StackLL_Test()
         {
-            var obj = new StackUsingLL();
+            var obj = new StackUsingLL<int>();
             obj.Push(1);
             obj.Push(1);
             obj.Push(1);
@@ -119,7 +119,7 @@ namespace DSCTest
          [Fact]
         public void StackLLPushPop_Test()
         {
-            var obj = new StackUsingLL();
+            var obj = new StackUsingLL<int>();
             obj.Push(10);
             obj.Push(11);
             obj.Push(12);
