@@ -84,7 +84,25 @@ namespace DataStructuresCsharp
 
         public void TaverseListInorderNonRecursive(BinaryTreeNode root)
         {
-            StackUsingLL<BinaryTreeNode> stage = new StackUsingLL<BinaryTreeNode>();            
+            StackUsingLL<BinaryTreeNode> stage = new StackUsingLL<BinaryTreeNode>();  
+            while(true)
+            {
+                // while(root!=null)
+                // {
+                //     if(root.left!=null)
+                //     {
+                //         stage.Push(root);
+                //         root = root.left;
+                //     }
+                // }
+                // resultListInOrderNonRecursive.InsertAtEnd(root.data);
+
+                // if(!stage.IsEmpty())
+                // {
+                //     root = stage.Pop();
+                //     root = root.right;
+                // }
+            }          
         }
 
         public void TraverseListPostOrderRecursive(BinaryTreeNode root)
