@@ -43,6 +43,7 @@ namespace DataStructuresCsharp
         LinkedList<int> resultListPostOrderNonRecursive = new LinkedList<int>();
         #endregion
         
+        #region Methods
         public void TraverseListPreOrderRecursive(BinaryTreeNode root)
         {            
             if(root!=null)
@@ -134,4 +135,5 @@ namespace DataStructuresCsharp
             return height;
         }
     }
+    #endregion
 }
