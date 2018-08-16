@@ -24,8 +24,6 @@ namespace DataStructuresCsharp
     public class BinaryTree
     {
         #region Variables
-        private BinaryTreeNode root;
-
         private int height;
 
         private int current=0;
@@ -118,6 +116,43 @@ namespace DataStructuresCsharp
             }
         }
         
+        public void TraverseListPostOrderNonRecursive(BinaryTreeNode root)
+        {
+            // StackUsingLL<BinaryTreeNode> stage = new StackUsingLL<BinaryTreeNode>();  
+            // while(true)
+            // {
+            //     if(root!=null)
+            //     {
+            //         stage.Push(root);
+            //         root= root.left;
+            //     }                
+            //     else 
+            //     {
+            //         if(stage.IsEmpty())
+            //         {
+            //             break;
+            //         }
+            //         else if(stage.PeekTop().right == null)
+            //         {
+            //             root = stage.Pop();
+            //             resultListPostOrderNonRecursive.InsertAtEnd(root.data);
+            //             if(root == stage.PeekTop().right)
+            //             {
+            //                 resultListPostOrderNonRecursive.InsertAtEnd(stage.PeekTop().data);
+            //                 stage.Pop();
+            //             }
+            //         }
+            //         if(!stage.IsEmpty())
+            //         {
+            //             root = stage.PeekTop().right;                    
+            //         }
+            //         else
+            //         {
+            //             root = null;
+            //         }
+            //     }
+            // }
+        }
         private int TreeHeight(BinaryTreeNode root)
         {            
             if(root!=null)
