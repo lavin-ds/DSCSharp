@@ -89,21 +89,19 @@ namespace DataStructuresCsharp
             StackUsingLL<BinaryTreeNode> stage = new StackUsingLL<BinaryTreeNode>();  
             while(true)
             {
-                // while(root!=null)
-                // {
-                //     if(root.left!=null)
-                //     {
-                //         stage.Push(root);
-                //         root = root.left;
-                //     }
-                // }
-                // resultListInOrderNonRecursive.InsertAtEnd(root.data);
-
-                // if(!stage.IsEmpty())
-                // {
-                //     root = stage.Pop();
-                //     root = root.right;
-                // }
+                while(root!=null)
+                {
+                    stage.Push(root);
+                    root = root.left;
+                }
+                if(stage.IsEmpty())
+                {
+                    break;
+                }
+                
+                root = stage.Pop();
+                resultListInOrderNonRecursive.InsertAtEnd(root.data);
+                root = root.right;                
             }          
         }
 
