@@ -24,7 +24,9 @@ namespace DataStructuresCsharp
         #region Variables
         private BinaryTreeNode root;
 
-        private BinaryTreeNode head;
+        private int height;
+
+        private int current=0;
 
         LinkedList<int> resultListPreOrderRecursive = new LinkedList<int>();
 
@@ -114,21 +116,22 @@ namespace DataStructuresCsharp
                 resultListPostOrderRecursive.InsertAtEnd(root.data);
             }
         }
+        
+        private int TreeHeight(BinaryTreeNode root)
+        {            
+            if(root!=null)
+            {
+                current++;
+                if(current>height)
+                {
+                    height = current;
+                }
 
-        // public void InsertElement(int data)
-        // {
-        //     if(root == null)
-        //     {
-        //         root = new BinaryTreeNode();
-        //         root.data = data;
-        //         root.left = null;
-        //         root.right = null; 
-        //         head = root;
-        //     }
-        //     else 
-        //     {
-        //         if()         
-        //     }
-        // }
+                TraverseListPreOrderRecursive(root.left);
+                TraverseListPreOrderRecursive(root.right);
+                current--;
+            }
+            return height;
+        }
     }
 }
