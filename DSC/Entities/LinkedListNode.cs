@@ -18,19 +18,5 @@ namespace DataStructuresCsharp
     {
         public T data;
         public LinkedListNode<T> next;
-
-        // public int GetValueAtDataNode()
-        // {
-        //     if(typeof(T) == typeof(int))
-        //     {
-        //         return Convert.ToInt32(data);
-        //     }
-        //     else if(typeof(T) == typeof(BinaryTreeNode))
-        //     {
-        //         BinaryTreeNode temp = (BinaryTreeNode)Convert.ChangeType(data, typeof(BinaryTreeNode));
-        //         return temp.data;
-        //     }
-        //     return 0;
-        // }
     }
 }
