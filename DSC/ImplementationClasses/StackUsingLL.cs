@@ -21,9 +21,9 @@ namespace DataStructuresCsharp
         private LinkedList<T> top = new LinkedList<T>();  
         private int max = -1;
         private int sum = 0;
-        public int PeekTop()
+        public T PeekTop()
         {
-            return top.GetDataAtHead().GetValueAtNode();
+            return top.GetDataAtHead();
         }
 
         public int StackLength()

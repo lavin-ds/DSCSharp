@@ -9,7 +9,9 @@ Sn      Author      Date            Comments
 1.      lavinds     05-Aug-2018     Initial draft of file
 2.      lavinds     12-Aug-2018     Updated to use LinkedList
                                     Added onrecursive traversal
-3.      lavinds     13-Aug-2018     Generic implemetation                                    
+3.      lavinds     13-Aug-2018     Generic implemetation    
+4.      lavinds     15-Aug-2018     NonrecursiveInorder
+5.      lavinds     16-Aug-2018     TreeHeight    
 *******************************************************************/
 
 #region Namespaces
@@ -22,9 +24,9 @@ namespace DataStructuresCsharp
     public class BinaryTree
     {
         #region Variables
-        private BinaryTreeNode root;
+        private int height;
 
-        private BinaryTreeNode head;
+        private int current=0;
 
         LinkedList<int> resultListPreOrderRecursive = new LinkedList<int>();
 
@@ -39,6 +41,7 @@ namespace DataStructuresCsharp
         LinkedList<int> resultListPostOrderNonRecursive = new LinkedList<int>();
         #endregion
         
+        #region Methods
         public void TraverseListPreOrderRecursive(BinaryTreeNode root)
         {            
             if(root!=null)
@@ -82,6 +85,27 @@ namespace DataStructuresCsharp
             }
         }
 
+        public void TaverseListInorderNonRecursive(BinaryTreeNode root)
+        {
+            StackUsingLL<BinaryTreeNode> stage = new StackUsingLL<BinaryTreeNode>();  
+            while(true)
+            {
+                while(root!=null)
+                {
+                    stage.Push(root);
+                    root = root.left;
+                }
+                if(stage.IsEmpty())
+                {
+                    break;
+                }
+                
+                root = stage.Pop();
+                resultListInOrderNonRecursive.InsertAtEnd(root.data);
+                root = root.right;                
+            }          
+        }
+
         public void TraverseListPostOrderRecursive(BinaryTreeNode root)
         {            
             if(root!=null)
@@ -91,21 +115,60 @@ namespace DataStructuresCsharp
                 resultListPostOrderRecursive.InsertAtEnd(root.data);
             }
         }
+        
+        public void TraverseListPostOrderNonRecursive(BinaryTreeNode root)
+        {
+            // StackUsingLL<BinaryTreeNode> stage = new StackUsingLL<BinaryTreeNode>();  
+            // while(true)
+            // {
+            //     if(root!=null)
+            //     {
+            //         stage.Push(root);
+            //         root= root.left;
+            //     }                
+            //     else 
+            //     {
+            //         if(stage.IsEmpty())
+            //         {
+            //             break;
+            //         }
+            //         else if(stage.PeekTop().right == null)
+            //         {
+            //             root = stage.Pop();
+            //             resultListPostOrderNonRecursive.InsertAtEnd(root.data);
+            //             if(root == stage.PeekTop().right)
+            //             {
+            //                 resultListPostOrderNonRecursive.InsertAtEnd(stage.PeekTop().data);
+            //                 stage.Pop();
+            //             }
+            //         }
+            //         if(!stage.IsEmpty())
+            //         {
+            //             root = stage.PeekTop().right;                    
+            //         }
+            //         else
+            //         {
+            //             root = null;
+            //         }
+            //     }
+            // }
+        }
+        private int TreeHeight(BinaryTreeNode root)
+        {            
+            if(root!=null)
+            {
+                current++;
+                if(current>height)
+                {
+                    height = current;
+                }
 
-        // public void InsertElement(int data)
-        // {
-        //     if(root == null)
-        //     {
-        //         root = new BinaryTreeNode();
-        //         root.data = data;
-        //         root.left = null;
-        //         root.right = null; 
-        //         head = root;
-        //     }
-        //     else 
-        //     {
-        //         if()         
-        //     }
-        // }
+                TraverseListPreOrderRecursive(root.left);
+                TraverseListPreOrderRecursive(root.right);
+                current--;
+            }
+            return height;
+        }
     }
+    #endregion
 }
