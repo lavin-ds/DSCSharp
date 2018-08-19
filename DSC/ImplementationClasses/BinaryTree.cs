@@ -12,6 +12,7 @@ Sn      Author      Date            Comments
 3.      lavinds     13-Aug-2018     Generic implemetation    
 4.      lavinds     15-Aug-2018     NonrecursiveInorder
 5.      lavinds     16-Aug-2018     TreeHeight    
+6.      lavinds     19-Aug-2018     NonRecursivePostOrder
 *******************************************************************/
 
 #region Namespaces
@@ -118,40 +119,40 @@ namespace DataStructuresCsharp
         
         public void TraverseListPostOrderNonRecursive(BinaryTreeNode root)
         {
-            // StackUsingLL<BinaryTreeNode> stage = new StackUsingLL<BinaryTreeNode>();  
-            // while(true)
-            // {
-            //     if(root!=null)
-            //     {
-            //         stage.Push(root);
-            //         root= root.left;
-            //     }                
-            //     else 
-            //     {
-            //         if(stage.IsEmpty())
-            //         {
-            //             break;
-            //         }
-            //         else if(stage.PeekTop().right == null)
-            //         {
-            //             root = stage.Pop();
-            //             resultListPostOrderNonRecursive.InsertAtEnd(root.data);
-            //             if(root == stage.PeekTop().right)
-            //             {
-            //                 resultListPostOrderNonRecursive.InsertAtEnd(stage.PeekTop().data);
-            //                 stage.Pop();
-            //             }
-            //         }
-            //         if(!stage.IsEmpty())
-            //         {
-            //             root = stage.PeekTop().right;                    
-            //         }
-            //         else
-            //         {
-            //             root = null;
-            //         }
-            //     }
-            // }
+            StackUsingLL<BinaryTreeNode> stage = new StackUsingLL<BinaryTreeNode>();  
+            while(true)
+            {
+                if(root!=null)
+                {
+                    stage.Push(root);
+                    root= root.left;
+                }                
+                else 
+                {
+                    if(stage.IsEmpty())
+                    {
+                        break;
+                    }
+                    else if(stage.PeekTop().right == null)
+                    {
+                        root = stage.Pop();
+                        resultListPostOrderNonRecursive.InsertAtEnd(root.data);
+                        if(root == stage.PeekTop().right)
+                        {
+                            resultListPostOrderNonRecursive.InsertAtEnd(stage.PeekTop().data);
+                            stage.Pop();
+                        }
+                    }
+                    if(!stage.IsEmpty())
+                    {
+                        root = stage.PeekTop().right;                    
+                    }
+                    else
+                    {
+                        root = null;
+                    }
+                }
+            }
         }
         private int TreeHeight(BinaryTreeNode root)
         {            
