@@ -23,14 +23,14 @@ namespace DataStructuresCsharp
         private int sum = 0;
 
 
-        public void Enqueue(T data)
+        public void EnQueue(T data)
         {
-
+            top.InsertAtHead(data);
         }
 
-        public T Dequeue()
+        public T DeQueue()
         {
-            
+            return top.DeleteLastNode();
         }
     }
 }
