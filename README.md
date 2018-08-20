@@ -6,3 +6,4 @@ Data Structures in C#
 3. Stack (Dynamic using static arrays)
 4. Stack (Dynamic using LinkedLists, with generics)
 5. Tree (Traversal only)
+6. Queue
