@@ -51,5 +51,10 @@ namespace DataStructuresCsharp
         {
             return max;
         }
+
+        public bool IsEmpty()
+        {
+            return (top.ListLength() == 0);
+        }
     }
 }
