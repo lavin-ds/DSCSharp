@@ -20,17 +20,36 @@ namespace DataStructuresCsharp
     {    
         private LinkedList<T> top = new LinkedList<T>();  
         private int max = -1;
-        private int sum = 0;
-
 
         public void EnQueue(T data)
         {
+            if(data.GetValueAtNode()>max)
+            {
+                max = data.GetValueAtNode();
+            }
             top.InsertAtHead(data);
         }
 
         public T DeQueue()
         {
-            return top.DeleteLastNode();
+            T first = top.GetDataAtTail();
+            top.DeleteLastNode();
+            return first;
+        }
+
+        public T First()
+        {
+            return top.GetDataAtTail();
+        }
+
+        public int QueueSize()
+        {
+            return top.ListLength();
+        }
+
+        public int MaxElement()
+        {
+            return max;
         }
     }
 }

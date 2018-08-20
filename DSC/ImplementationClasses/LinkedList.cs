@@ -20,6 +20,8 @@ namespace DataStructuresCsharp
     {
         private LinkedListNode<T> head;
 
+        private LinkedListNode<T> tail;
+
         public void InsertAtHead(T data)
         {
             if(head == null)
@@ -27,6 +29,9 @@ namespace DataStructuresCsharp
                 head = new LinkedListNode<T>();
                 head.next = null;
                 head.data = data; 
+
+                tail.data = data;
+                tail.next = null;
             }
             else 
             {
@@ -70,6 +75,8 @@ namespace DataStructuresCsharp
             var newNode = new LinkedListNode<T>();
             newNode.next = null;
             newNode.data = data;
+
+            tail = newNode;
 
             if(head == null)
             {
@@ -127,7 +134,7 @@ namespace DataStructuresCsharp
             }            
         }
 
-        public T DeleteLastNode()
+        public void DeleteLastNode()
         {
             if(head == null || head.next == null)
             {
@@ -143,9 +150,7 @@ namespace DataStructuresCsharp
                     temp = temp.next;
                 }
                 data = temp.next.data;
-                temp.next = null;
-                return data;
-            }
+                temp.next = null;            }
         }
 
         public void DeleteFromPostion(int position)
@@ -180,6 +185,16 @@ namespace DataStructuresCsharp
             }
             return head.data;
         }
+
+        public T GetDataAtTail()
+        {
+            if(head == null)
+            {
+                throw new IndexOutOfRangeException();
+            }
+            return tail.data;
+        }
+
 
         public int MaxElement()
         {
