@@ -21,5 +21,16 @@ namespace DataStructuresCsharp
         private LinkedList<T> top = new LinkedList<T>();  
         private int max = -1;
         private int sum = 0;
+
+
+        public void Enqueue(T data)
+        {
+
+        }
+
+        public T Dequeue()
+        {
+            
+        }
     }
 }

@@ -127,7 +127,7 @@ namespace DataStructuresCsharp
             }            
         }
 
-        public void DeleteLastNode()
+        public T DeleteLastNode()
         {
             if(head == null || head.next == null)
             {
@@ -135,13 +135,16 @@ namespace DataStructuresCsharp
             }
             else
             {
+                T data;
                 var temp = head;
 
                 while(temp.next.next != null)
                 {
                     temp = temp.next;
                 }
+                data = temp.next.data;
                 temp.next = null;
+                return data;
             }
         }
 
