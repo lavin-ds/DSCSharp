@@ -16,7 +16,7 @@ using System;
 
 namespace DataStructuresCsharp
 {       
-    public class Queue<T>
+    public class QueueUsingLL<T>
     {    
         private LinkedList<T> top = new LinkedList<T>();  
         private int max = -1;

@@ -13,6 +13,7 @@ Sn      Author      Date            Comments
 4.      lavinds     15-Aug-2018     NonrecursiveInorder
 5.      lavinds     16-Aug-2018     TreeHeight    
 6.      lavinds     19-Aug-2018     NonRecursivePostOrder
+7.      lavinds     21-Aug-2018     LevelOrderTraversal
 *******************************************************************/
 
 #region Namespaces
@@ -40,6 +41,9 @@ namespace DataStructuresCsharp
         LinkedList<int> resultListInOrderNonRecursive = new LinkedList<int>();
 
         LinkedList<int> resultListPostOrderNonRecursive = new LinkedList<int>();
+
+        LinkedList<int> resultListLevelOrderNonRecursive = new LinkedList<int>();
+
         #endregion
         
         #region Methods
@@ -154,7 +158,7 @@ namespace DataStructuresCsharp
                 }
             }
         }
-        private int TreeHeight(BinaryTreeNode root)
+        public int TreeHeight(BinaryTreeNode root)
         {            
             if(root!=null)
             {
@@ -169,6 +173,30 @@ namespace DataStructuresCsharp
                 current--;
             }
             return height;
+        }
+        
+        public void LevelOrderTraversal(BinaryTreeNode root)
+        {
+            QueueUsingLL<BinaryTreeNode> queueObj = new QueueUsingLL<BinaryTreeNode>();
+            BinaryTreeNode temp;
+            if(root == null)
+            {
+                return;
+            }
+            queueObj.EnQueue(root);
+            while(!queueObj.IsEmpty())
+            {
+                temp = queueObj.DeQueue();
+                resultListLevelOrderNonRecursive.InsertAtEnd(temp.data);
+                if(temp.left!=null)
+                {
+                    queueObj.EnQueue(temp.left);
+                }
+                if(temp.right!=null)
+                {
+                    queueObj.EnQueue(temp.right);
+                }
+            }
         }
     }
     #endregion
