@@ -7,3 +7,5 @@ Data Structures in C#
 4. Stack (Dynamic using LinkedLists, with generics)
 5. Tree (Traversal only)
 6. Queue
+
+//Need to  update BST, Disjoint Sets, PriorityQueues, Hashmaps
