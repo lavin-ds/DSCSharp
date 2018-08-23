@@ -15,7 +15,7 @@ Sn      Author      Date            Comments
 6.      lavinds     19-Aug-2018     NonRecursivePostOrder
 7.      lavinds     21-Aug-2018     LevelOrderTraversal
 8.      lavinds     23-Aug-2018     FindMax usingRecursion
-
+9.      lavinds     23-Aug-2018     FindMax without Recursion
 *******************************************************************/
 
 #region Namespaces
@@ -221,9 +221,37 @@ namespace DataStructuresCsharp
             {
                 rootData = max;
             }
-
             return max;
         }
+
+        public int FindMaxWithoutRecursion(BinaryTreeNode root)
+        {
+            int max = -1;
+            QueueUsingLL<BinaryTreeNode> queueObj = new QueueUsingLL<BinaryTreeNode>();
+            BinaryTreeNode temp;
+            if(root!=null)
+            {
+                queueObj.EnQueue(root);
+                while(!queueObj.IsEmpty())
+                {
+                    temp = queueObj.DeQueue();
+                    if(temp.data>max)
+                    {
+                        max = temp.data;
+                    }
+                    if(temp.left!=null)
+                    {
+                        queueObj.EnQueue(temp.left);
+                    }
+                    if(temp.right!=null)
+                    {
+                        queueObj.EnQueue(temp.right);
+                    }
+                }
+            }
+            return max;
+        }
+
         #endregion
     }
 }
