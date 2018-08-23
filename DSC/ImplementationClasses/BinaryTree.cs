@@ -14,6 +14,8 @@ Sn      Author      Date            Comments
 5.      lavinds     16-Aug-2018     TreeHeight    
 6.      lavinds     19-Aug-2018     NonRecursivePostOrder
 7.      lavinds     21-Aug-2018     LevelOrderTraversal
+8.      lavinds     23-Aug-2018     FindMax usingRecursion
+
 *******************************************************************/
 
 #region Namespaces
@@ -198,6 +200,30 @@ namespace DataStructuresCsharp
                 }
             }
         }
+
+        public int FindMax(BinaryTreeNode root)
+        {
+            int rootData=-1, leftMax=-1, rightMax=-1,max=-1;
+            if(root!=null)
+            {
+                rootData = root.data;
+                leftMax = FindMax(root.left);
+                rightMax = FindMax(root.right);
+            }
+
+            if (leftMax>rightMax)
+            {
+                max = leftMax;
+            }
+            else
+                max = rightMax;
+            if(max>rootData)
+            {
+                rootData = max;
+            }
+
+            return max;
+        }
+        #endregion
     }
-    #endregion
 }
