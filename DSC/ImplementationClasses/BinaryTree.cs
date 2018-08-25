@@ -17,6 +17,7 @@ Sn      Author      Date            Comments
 8.      lavinds     23-Aug-2018     FindMax usingRecursion
 9.      lavinds     23-Aug-2018     FindMax without Recursion
 10.     lavinds     24-Aug-2018     TreeSearchWithoutRecursion
+11.     lavinds     25-Aug-2018     TreeSearch with Recursion
 *******************************************************************/
 
 #region Namespaces
