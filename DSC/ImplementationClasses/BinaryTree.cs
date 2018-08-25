@@ -280,6 +280,36 @@ namespace DataStructuresCsharp
             return false;
         }
 
+        public bool SearchIfDataExistsWithRecursion(BinaryTreeNode root, int data)
+        {
+            if(root==null)
+            {
+                return false;
+            }
+            else
+            {
+                //if data is found
+                if(root.data == data)
+                {
+                    return true;
+                }
+                else
+                {
+                    //recur down the tree
+                    var temp = SearchIfDataExistsWithRecursion(root.left,data);
+                    if(temp)
+                    {
+                        return temp; 
+                    }
+                    else
+                    {
+                        temp = SearchIfDataExistsWithRecursion(root.right,data);
+                        return temp;
+                    }
+                }
+            }
+        }
+
         #endregion
     }
 }
