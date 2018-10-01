@@ -359,6 +359,26 @@ namespace DataStructuresCsharp
             }
         }
 
+        public BinaryTreeNode InsertDataWithRecursion(BinaryTreeNode root, int data)
+        {
+            if(root == null)
+            {
+                root = new BinaryTreeNode(data);
+            }
+            else
+            {
+                if(data<root.data)
+                {
+                    root.left = InsertDataWithRecursion(root.left,data);
+                }
+                else
+                {
+                    root.right = InsertDataWithRecursion(root.right,data);
+                }
+            }
+            return root;
+        }
+
         #endregion
     }
 }
