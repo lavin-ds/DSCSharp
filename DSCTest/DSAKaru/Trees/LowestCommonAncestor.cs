@@ -13,9 +13,10 @@ using DataStructuresCsharp;
 using Xunit;
 #endregion
 
-namespace DSCTest.DSAKaru.Trees
+namespace DSCTest
 {
-    public class LowestCommonAncestor
+    public class InsertTest
     {
+
     }
 }

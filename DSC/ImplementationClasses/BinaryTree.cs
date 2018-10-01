@@ -18,6 +18,7 @@ Sn      Author      Date            Comments
 9.      lavinds     23-Aug-2018     FindMax without Recursion
 10.     lavinds     24-Aug-2018     TreeSearchWithoutRecursion
 11.     lavinds     25-Aug-2018     TreeSearch with Recursion
+12.     lavinds     01-Oct-2018     Insert into tree 
 *******************************************************************/
 
 #region Namespaces
@@ -309,6 +310,41 @@ namespace DataStructuresCsharp
                     }
                 }
             }
+        }
+
+        public BinaryTreeNode Insert(BinaryTreeNode root, int data)
+        {
+            QueueUsingLL<BinaryTreeNode> queueObj = new QueueUsingLL<BinaryTreeNode>();
+            if(root!=null)
+            {
+                queueObj.EnQueue(root);
+                while(!queueObj.IsEmpty())
+                {
+                    var temp = queueObj.DeQueue();
+                    if(data<=temp.data && temp.left == null)
+                    {
+                        temp.left = new BinaryTreeNode();
+                        temp.left.data = data;
+                        break;
+                    }
+                    else
+                    {
+                        queueObj.EnQueue(temp.left);
+                    }
+                    if(data>temp.data && temp.right == null)
+                    {
+                        temp.right = new BinaryTreeNode();
+                        temp.right.data = data;
+                        break;
+                    }
+                    else
+                    {
+                        queueObj.EnQueue(temp.right);
+                    }
+                }
+            }
+            
+            return root;
         }
 
         #endregion

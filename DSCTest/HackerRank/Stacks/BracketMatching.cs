@@ -26,7 +26,7 @@ using DataStructuresCsharp;
 using Xunit;
 #endregion
 
-namespace DSCTest.Problems.Stacks
+namespace DSCTest
 {
     public class BracketMatching
     {
