@@ -18,5 +18,10 @@ namespace DataStructuresCsharp
         public int data;
         public BinaryTreeNode left;
         public BinaryTreeNode right;
+
+        public BinaryTreeNode(int value)
+        {
+            data = value;
+        }
     }
 }

@@ -31,6 +31,9 @@ namespace DataStructuresCsharp
     public class BinaryTree
     {
         #region Variables
+
+        private BinaryTreeNode root;
+
         private int height;
 
         private int current=0;
@@ -312,7 +315,7 @@ namespace DataStructuresCsharp
             }
         }
 
-        public BinaryTreeNode Insert(BinaryTreeNode root, int data)
+        public void InsertData(int data)
         {
             QueueUsingLL<BinaryTreeNode> queueObj = new QueueUsingLL<BinaryTreeNode>();
             if(root!=null)
@@ -323,7 +326,7 @@ namespace DataStructuresCsharp
                     var temp = queueObj.DeQueue();
                     if(data<=temp.data && temp.left == null)
                     {
-                        temp.left = new BinaryTreeNode();
+                        temp.left = new BinaryTreeNode(data);
                         temp.left.data = data;
                         break;
                     }
@@ -333,7 +336,7 @@ namespace DataStructuresCsharp
                     }
                     if(data>temp.data && temp.right == null)
                     {
-                        temp.right = new BinaryTreeNode();
+                        temp.right = new BinaryTreeNode(data);
                         temp.right.data = data;
                         break;
                     }
@@ -343,8 +346,10 @@ namespace DataStructuresCsharp
                     }
                 }
             }
-            
-            return root;
+            else
+            {
+                root = new BinaryTreeNode(data);
+            }
         }
 
         #endregion

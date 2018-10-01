@@ -8,6 +8,7 @@ Sn      Author      Date            Comments
 ************************************************************
 1.      lavinds     22-Jul-2018     Initial draft of file
 2.      lavinds     13-Aug-2018     Generic implementation
+3.      lavinds     01-OCt-2018     Bug Fix
 ************************************************************/
 
 #region Namespaces
@@ -30,6 +31,7 @@ namespace DataStructuresCsharp
                 head.next = null;
                 head.data = data; 
 
+                tail = new LinkedListNode<T>();
                 tail.data = data;
                 tail.next = null;
             }

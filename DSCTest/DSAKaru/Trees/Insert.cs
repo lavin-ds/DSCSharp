@@ -17,6 +17,16 @@ namespace DSCTest
 {
     public class InsertTest
     {
-
+        [Fact]
+        public void BinartTreeInsertTest()
+        {
+            BinaryTree btObj = new BinaryTree();
+            btObj.InsertData(5);
+            btObj.InsertData(6);
+            btObj.InsertData(7);
+            btObj.InsertData(4);
+            btObj.InsertData(3);
+            btObj.InsertData(8);
+        }        
     }
 }
