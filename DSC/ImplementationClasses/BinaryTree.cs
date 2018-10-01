@@ -324,26 +324,33 @@ namespace DataStructuresCsharp
                 while(!queueObj.IsEmpty())
                 {
                     var temp = queueObj.DeQueue();
-                    if(data<=temp.data && temp.left == null)
-                    {
-                        temp.left = new BinaryTreeNode(data);
-                        temp.left.data = data;
-                        break;
+                    if(data<=temp.data)
+                    { 
+                        if(temp.left == null)
+                        {                       
+                            temp.left = new BinaryTreeNode(data);
+                            break;
+                        }
+                        else
+                        {
+                            queueObj.EnQueue(temp.left);
+                        }
                     }
-                    else
+                   
+                   if(data>temp.data)
                     {
-                        queueObj.EnQueue(temp.left);
+                        if(temp.right == null)
+                        {
+                        
+                            temp.right = new BinaryTreeNode(data);
+                            break;
+                        }
+                        else
+                        {
+                            queueObj.EnQueue(temp.right);
+                        }
                     }
-                    if(data>temp.data && temp.right == null)
-                    {
-                        temp.right = new BinaryTreeNode(data);
-                        temp.right.data = data;
-                        break;
-                    }
-                    else
-                    {
-                        queueObj.EnQueue(temp.right);
-                    }
+                    
                 }
             }
             else
