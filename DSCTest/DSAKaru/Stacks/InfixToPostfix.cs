@@ -108,6 +108,12 @@ namespace DSCTest
             result = ConvertInfixToPostfix(infix);
             
             Assert.Equal("ABC*+",result);
+
+            infix = "(A+B)*C";
+            
+            result = ConvertInfixToPostfix(infix);
+            
+            Assert.Equal("AB+C*",result);
         }
     }
 }
