@@ -1,5 +1,6 @@
 using DataStructuresCsharp;
 using System.Text;
+using Xunit;
 
 namespace DSCTest
 {
@@ -8,9 +9,39 @@ namespace DSCTest
         public string ConvertInfixToPrefix(string input)
         {
             StackUsingLL<int> staging = new StackUsingLL<int>();
-            StringBuilder result = new StringBuilder();
+            StackUsingLL<int> result = new StackUsingLL<int>();
+            StringBuilder resultString = new StringBuilder();
+
+            // for (int i = (input.Length-1); i=0;i--)
+            // {
+
+            // }
+
+            
 
             return string.Empty;
+        }
+
+        public bool IsOperand(char ip)
+        {
+            if (ip>='a' && ip <='z' || ip>='A' && ip <='z') 
+                return true;
+            return false;
+        }
+
+        public int CheckPrecedence(int ip)
+        {
+            switch(ip)
+            {
+                case '*':
+                case '/':
+                    {return 10;}
+                case '+':
+                case '-':
+                    {return 9;}
+                default :
+                    {return 0;}
+            }
         }
 
         [Fact]
