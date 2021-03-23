@@ -119,7 +119,7 @@ namespace DSCTest
 
             result = ConvertInfixToPostfix(infix);
             
-            Assert.Equal("ABC*D+",result);
+            Assert.Equal("ABC*+D+",result);
 
             infix = "(A+B)*(C+D)";
 
@@ -127,7 +127,17 @@ namespace DSCTest
             
             Assert.Equal("AB+CD+*",result);
 
+            infix = "A*B+C*D";
 
+            result = ConvertInfixToPostfix(infix);
+            
+            Assert.Equal("AB*CD*+",result);
+
+            infix = "A+B+C+D";
+
+            result = ConvertInfixToPostfix(infix);
+            
+            Assert.Equal("AB+C+D+",result);
         }
     }
 }
