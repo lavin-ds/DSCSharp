@@ -19,6 +19,10 @@ namespace DataStructuresCsharp
     public class StackStaticLength
     {
         private Stack st;
+
+        /// <summary>
+        /// Stack of ints will be created with storage for 10 
+        /// </summary>
         public StackStaticLength()
         {
             CreateStack();   
