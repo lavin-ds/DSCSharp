@@ -38,7 +38,7 @@ namespace DSCTest
                     staging.Push('(');
                 }
 
-                //If scanned character is ')', pop all  operators from stack untill '(' is found
+                //If scanned character is ')', pop all  operators from stack until '(' is found
                 else if(infix[i] == ')')
                 {
                     while(!staging.IsEmpty() && staging.PeekTop() != '(')
