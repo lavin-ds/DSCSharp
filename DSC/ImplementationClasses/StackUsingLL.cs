@@ -46,6 +46,7 @@ namespace DataStructuresCsharp
             top.InsertAtHead(data);                   
         }
 
+        //TODO: Delete tail on emptying stack
         public T Pop()
         {
             var headData = top.GetDataAtHead();

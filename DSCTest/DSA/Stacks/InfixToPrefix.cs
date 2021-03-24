@@ -1,4 +1,5 @@
 using DataStructuresCsharp;
+using System;
 using System.Text;
 using Xunit;
 
@@ -39,11 +40,33 @@ namespace DSCTest
 
                 else
                 {
-                    
-                }
-            }        
+                    if(!staging.IsEmpty() && CheckPrecedence(input[i]) >= CheckPrecedence(staging.PeekTop()))
+                    {
+                        staging.Push(input[i]);
+                    }
+                    else if(!staging.IsEmpty() && CheckPrecedence(input[i]) < CheckPrecedence(staging.PeekTop()))
+                    {
+                        result.Push(staging.Pop());
+                        staging.Push(input[i]);
+                    }
+                    else if(staging.IsEmpty())
+                    {
+                        staging.Push(input[i]);
+                    }
+                }                
+            }    
 
-            return string.Empty;
+            while(!staging.IsEmpty())    
+            {
+                result.Push(staging.Pop());
+            }
+
+            while(!result.IsEmpty())    
+            {
+                resultString.Append(Convert.ToChar(result.Pop()));
+            }
+
+            return resultString.ToString();
         }
     
 
