@@ -1,5 +1,6 @@
 # DSC
-Data Structures in C#
+Data Structures and Algorithms in C#
+The project can be run using VSCode and the tests use XUnit.
 
 1. LinkedLists (with generics)
 2. Stack (Static Size, with sample problems)
