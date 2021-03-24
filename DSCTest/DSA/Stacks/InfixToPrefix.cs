@@ -6,21 +6,46 @@ namespace DSCTest
 {
     public class InfixToPrefix
     {
+        /// <summary>
+        /// Method to convert an Infix expr to Prefix (Polish Notation)
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         public string ConvertInfixToPrefix(string input)
         {
             StackUsingLL<int> staging = new StackUsingLL<int>();
             StackUsingLL<int> result = new StackUsingLL<int>();
             StringBuilder resultString = new StringBuilder();
 
-            // for (int i = (input.Length-1); i=0;i--)
-            // {
-
-            // }
-
+            for (int i = input.Length-1; i>=0;i--)
+            {
+                if( input[i] == ')')
+                {
+                    staging.Push(input[i]);                    
+                }                
+                else if(IsOperand(input[i]))
+                {
+                    result.Push(input[i]);
+                }
             
+                else if(input[i] == '(')
+                {
+                    while (staging.PeekTop() != ')')
+                    {
+                        result.Push(staging.Pop());
+                    }
+                    staging.Pop();
+                }
+
+                else
+                {
+                    
+                }
+            }        
 
             return string.Empty;
         }
+    
 
         public bool IsOperand(char ip)
         {
