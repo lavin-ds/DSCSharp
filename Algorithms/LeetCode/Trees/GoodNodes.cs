@@ -56,29 +56,31 @@ using DataStructures.ADT;
 using DataStructures.Entities;
 using Xunit;
 
-public class GoodNodes {
-    private int count = 0;
-    public int GoodorVisibleNodes(BinaryTreeNode root) 
-    {
-        ITT(root, root.data);         
-        return count;
-    }
-    
-    public void  ITT(BinaryTreeNode root, int maxVal)
-    {
-        int newMaxVal = maxVal;
-        if(root.data>= maxVal)
+namespace Algorithms.LeetCode.Trees
+{
+    public class GoodNodes {
+        private int count = 0;
+        public int GoodorVisibleNodes(BinaryTreeNode root) 
         {
-            count++;
-            newMaxVal = root.data;    
+            ITT(root, root.data);         
+            return count;
         }
         
-        if(root.left !=null)
-            ITT(root.left, newMaxVal);
-        if(root.right !=null)
-            ITT(root.right, newMaxVal);     
-    }   
+        public void  ITT(BinaryTreeNode root, int maxVal)
+        {
+            int newMaxVal = maxVal;
+            if(root.data>= maxVal)
+            {
+                count++;
+                newMaxVal = root.data;    
+            }
+            
+            if(root.left !=null)
+                ITT(root.left, newMaxVal);
+            if(root.right !=null)
+                ITT(root.right, newMaxVal);     
+        }   
 
-    //TODO: Write a test wrapper for the method
+        //TODO: Write a test wrapper for the method
+    }
 }
-
