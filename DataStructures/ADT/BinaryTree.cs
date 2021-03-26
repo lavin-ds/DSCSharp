@@ -360,7 +360,7 @@ namespace DataStructures.ADT
             }
         }
 
-        public BinaryTreeNode InsertDataWithRecursion(BinaryTreeNode root, int data)
+        public BinaryTreeNode InsertDataWithRecursionBST(BinaryTreeNode root, int data)
         {
             if(root == null)
             {
@@ -370,11 +370,11 @@ namespace DataStructures.ADT
             {
                 if(data<root.data)
                 {
-                    root.left = InsertDataWithRecursion(root.left,data);
+                    root.left = InsertDataWithRecursionBST(root.left,data);
                 }
                 else
                 {
-                    root.right = InsertDataWithRecursion(root.right,data);
+                    root.right = InsertDataWithRecursionBST(root.right,data);
                 }
             }
             return root;

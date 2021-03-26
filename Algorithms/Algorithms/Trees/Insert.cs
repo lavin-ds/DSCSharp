@@ -34,11 +34,11 @@ namespace Algorithms.Trees
         {
             BinaryTree btObj = new BinaryTree();
             BinaryTreeNode node = new BinaryTreeNode(5);
-            btObj.InsertDataWithRecursion(node,6);
-            btObj.InsertDataWithRecursion(node,7);
-            btObj.InsertDataWithRecursion(node,4);
-            btObj.InsertDataWithRecursion(node,3);
-            btObj.InsertDataWithRecursion(node,8);
+            btObj.InsertDataWithRecursionBST(node,6);
+            btObj.InsertDataWithRecursionBST(node,7);
+            btObj.InsertDataWithRecursionBST(node,4);
+            btObj.InsertDataWithRecursionBST(node,3);
+            btObj.InsertDataWithRecursionBST(node,8);
         }        
     }
 }
