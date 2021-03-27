@@ -1,5 +1,3 @@
-using System.Reflection;
-using System.Linq;
 /*
 A string s is called good if there are no two different characters in s that have the same frequency.
 
@@ -40,122 +38,125 @@ Constraints:
 using System.Collections.Generic;
 using Xunit;
 using System;
+using System.Linq;
 
-public class MinDeletions {
-    public int FindMinDeletionsOptimized(string s)
-    {
-        int[] count = new int[26];
-        int deletions = 0;
-        
-        HashSet<int> freqSeen = new HashSet<int>();
-         
-        for(int i = 0; i<s.Length;i++)
+namespace Algorithms.LeetCode.Strings
+{
+    public class MinDeletions {
+        public int FindMinDeletionsOptimized(string s)
         {
-            count[s[i] - 'a']++;
-        }
-        
-        for(int i =0; i<26;i++)
-        {
-            int currFreq = count[i];
-            while(currFreq >0 && !freqSeen.Add(currFreq))
+            int[] count = new int[26];
+            int deletions = 0;
+            
+            HashSet<int> freqSeen = new HashSet<int>();
+            
+            for(int i = 0; i<s.Length;i++)
             {
-                currFreq--;
-                deletions++;
+                count[s[i] - 'a']++;
             }
-        }
-        
-        return deletions;
-    }
-
-    public int FindMinDeletions(string s) {
-        int curFreq = Int32.MaxValue;
-        Dictionary<char, int> frequencies= new Dictionary<char, int>();
-        int deletions = 0;
-        for(int i = 0; i<s.Length; i++)
-        {
-            if(frequencies.ContainsKey(s[i]))
+            
+            for(int i =0; i<26;i++)
             {
-                frequencies[s[i]]++;
-            }
-            else
-            {
-                frequencies.Add(s[i],1);
-            }
-        }
-        
-        var sortedValues = frequencies.Values.OrderByDescending(x=>x).ToList();
-        
-        for(int i =0;i<= sortedValues.Count()-1;i++)
-        {
-            if(sortedValues[i] >= curFreq)
-            {
-                if(curFreq == 0)
+                int currFreq = count[i];
+                while(currFreq >0 && !freqSeen.Add(currFreq))
                 {
-                    deletions += sortedValues[i];
+                    currFreq--;
+                    deletions++;
+                }
+            }
+            
+            return deletions;
+        }
+
+        public int FindMinDeletions(string s) {
+            int curFreq = Int32.MaxValue;
+            Dictionary<char, int> frequencies= new Dictionary<char, int>();
+            int deletions = 0;
+            for(int i = 0; i<s.Length; i++)
+            {
+                if(frequencies.ContainsKey(s[i]))
+                {
+                    frequencies[s[i]]++;
                 }
                 else
                 {
-                    deletions += sortedValues[i]-curFreq +1;    
-                    curFreq--;
-                }                
+                    frequencies.Add(s[i],1);
+                }
             }
-            else
+            
+            var sortedValues = frequencies.Values.OrderByDescending(x=>x).ToList();
+            
+            for(int i =0;i<= sortedValues.Count()-1;i++)
             {
-                curFreq = sortedValues[i];
+                if(sortedValues[i] >= curFreq)
+                {
+                    if(curFreq == 0)
+                    {
+                        deletions += sortedValues[i];
+                    }
+                    else
+                    {
+                        deletions += sortedValues[i]-curFreq +1;    
+                        curFreq--;
+                    }                
+                }
+                else
+                {
+                    curFreq = sortedValues[i];
+                }
             }
+            return deletions;
         }
-        return deletions;
-    }
+
+        [Fact]
+        public void TestWrapper()
+        {
+            var s = "aab";
+            var deletions = FindMinDeletions(s);
+
+            Assert.Equal(0,deletions);
+
+            
+            s = "aabbcc";
+            deletions = FindMinDeletions(s);
+
+            Assert.Equal(3,deletions);
+
+            s = "aaabbbcc";
+            deletions = FindMinDeletions(s);
+
+            Assert.Equal(2,deletions);
+            
+            s = "ceabaacb";
+            deletions = FindMinDeletions(s);
+
+            Assert.Equal(2,deletions);
+        }
 
     [Fact]
-    public void TestWrapper()
-    {
-        var s = "aab";
-        var deletions = FindMinDeletions(s);
+        public void TestWrapper2()
+        {
+            var s = "aab";
+            var deletions = FindMinDeletionsOptimized(s);
 
-        Assert.Equal(0,deletions);
+            Assert.Equal(0,deletions);
 
-        
-        s = "aabbcc";
-        deletions = FindMinDeletions(s);
+            
+            s = "aabbcc";
+            deletions = FindMinDeletionsOptimized(s);
 
-        Assert.Equal(3,deletions);
+            Assert.Equal(3,deletions);
 
-        s = "aaabbbcc";
-        deletions = FindMinDeletions(s);
+            s = "aaabbbcc";
+            deletions = FindMinDeletionsOptimized(s);
 
-        Assert.Equal(2,deletions);
-        
-        s = "ceabaacb";
-        deletions = FindMinDeletions(s);
+            Assert.Equal(2,deletions);
+            
+            s = "ceabaacb";
+            deletions = FindMinDeletionsOptimized(s);
 
-        Assert.Equal(2,deletions);
+            Assert.Equal(2,deletions);
+        }
+
     }
-
-[Fact]
-    public void TestWrapper2()
-    {
-        var s = "aab";
-        var deletions = FindMinDeletionsOptimized(s);
-
-        Assert.Equal(0,deletions);
-
-        
-        s = "aabbcc";
-        deletions = FindMinDeletionsOptimized(s);
-
-        Assert.Equal(3,deletions);
-
-        s = "aaabbbcc";
-        deletions = FindMinDeletionsOptimized(s);
-
-        Assert.Equal(2,deletions);
-        
-        s = "ceabaacb";
-        deletions = FindMinDeletionsOptimized(s);
-
-        Assert.Equal(2,deletions);
-    }
-
 }
-

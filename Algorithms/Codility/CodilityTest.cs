@@ -1,8 +1,4 @@
 /*
-
-
-This is a demo task.
-
 Write a function:
 
     class Solution { public int solution(int[] A); }
@@ -80,8 +76,7 @@ namespace Algorithms.Codility
 
             int[] ip4 = {-3, -10, -555656, 5664, 4545, 2135, 4845};
             result  = solutionFind(ip4); 
-            Assert.Equal(1, result);
-            
+            Assert.Equal(1, result);            
         }
     }
 }
