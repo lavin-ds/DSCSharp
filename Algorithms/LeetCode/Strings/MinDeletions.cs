@@ -42,7 +42,32 @@ using Xunit;
 using System;
 
 public class MinDeletions {
-        public int FindMinDeletions(string s) {
+    public int FindMinDeletionsOptimized(string s)
+    {
+        int[] count = new int[26];
+        int deletions = 0;
+        
+        HashSet<int> freqSeen = new HashSet<int>();
+         
+        for(int i = 0; i<s.Length;i++)
+        {
+            count[s[i] - 'a']++;
+        }
+        
+        for(int i =0; i<26;i++)
+        {
+            int currFreq = count[i];
+            while(currFreq >0 && !freqSeen.Add(currFreq))
+            {
+                currFreq--;
+                deletions++;
+            }
+        }
+        
+        return deletions;
+    }
+
+    public int FindMinDeletions(string s) {
         int curFreq = Int32.MaxValue;
         Dictionary<char, int> frequencies= new Dictionary<char, int>();
         int deletions = 0;
@@ -107,6 +132,30 @@ public class MinDeletions {
         Assert.Equal(2,deletions);
     }
 
+[Fact]
+    public void TestWrapper2()
+    {
+        var s = "aab";
+        var deletions = FindMinDeletionsOptimized(s);
+
+        Assert.Equal(0,deletions);
+
+        
+        s = "aabbcc";
+        deletions = FindMinDeletionsOptimized(s);
+
+        Assert.Equal(3,deletions);
+
+        s = "aaabbbcc";
+        deletions = FindMinDeletionsOptimized(s);
+
+        Assert.Equal(2,deletions);
+        
+        s = "ceabaacb";
+        deletions = FindMinDeletionsOptimized(s);
+
+        Assert.Equal(2,deletions);
+    }
 
 }
 
