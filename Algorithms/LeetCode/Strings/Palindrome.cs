@@ -48,7 +48,7 @@ namespace Algorithms.LeetCode.Strings
                     localSwap = s.Length/2-left;
                     while(localSwap>0)
                     {
-                        swap(ip, left, left+1);
+                        SwapVal(ip, left, left+1);
                         localSwap--;                                       
                         left++;                       
                     }
@@ -58,7 +58,7 @@ namespace Algorithms.LeetCode.Strings
                 
                 while(localSwap>0)
                 {
-                    swap(ip, right, right+1);
+                    SwapVal(ip, right, right+1);
                     localSwap--;                                       
                     right++; 
                 }
@@ -67,7 +67,7 @@ namespace Algorithms.LeetCode.Strings
             return totalSwaps;
         }
 
-        public void swap (char[] chars, int i, int j)
+        public void SwapVal (char[] chars, int i, int j)
         {
             var temp = chars[i];
             chars[i] = chars[j];
