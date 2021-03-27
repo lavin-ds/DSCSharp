@@ -34,8 +34,7 @@ namespace Algorithms.LeetCode.Strings
             return frequencies.Where(x=>x.Value==2).FirstOrDefault().Key;
 
         }
-
-        //TODO: Write a test wrapper for the method
+       
         [Fact]
         public void TestWrap()
         {
