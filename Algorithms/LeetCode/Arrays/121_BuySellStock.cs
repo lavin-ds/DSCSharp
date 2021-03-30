@@ -98,14 +98,30 @@ namespace Algorithms.LeetCode.Arrays
             int[] arr1 = {1,7,5,0,6};
             var result = MaxProfit(arr1);
             Assert.Equal(6, result);
+
+            int[] arr2 = {7,1,5,3,6,4};
+            result = MaxProfit(arr2);
+            Assert.Equal(5, result);
+
+            int[] arr3 = {7,6,4,3,1};
+            result = MaxProfit(arr3);
+            Assert.Equal(0, result);
         }
                 
         [Fact]
         public void TestWrapper2()
         {
-           int[] arr1 = {1,7,5,0,6};
+            int[] arr1 = {1,7,5,0,6};
             var result = MaxProfitOptimized(arr1);
             Assert.Equal(6, result);
+
+            int[] arr2 = {7,1,5,3,6,4};
+            result = MaxProfitOptimized(arr2);
+            Assert.Equal(5, result);
+
+            int[] arr3 = {7,6,4,3,1};
+            result = MaxProfitOptimized(arr3);
+            Assert.Equal(0, result);
         }
 
     }
