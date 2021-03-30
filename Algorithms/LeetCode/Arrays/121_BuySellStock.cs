@@ -37,24 +37,6 @@ namespace Algorithms.LeetCode.Arrays
 {
     public class BuySellStock 
     {
-        public int MaxProfitOptimized(int[] prices) 
-        {            
-            if(prices.Length < 1)
-            {
-                return 0;
-            }
-
-            int profit = int.MinValue;
-            int buyPrice = int.MaxValue;
-
-            foreach(var price in prices)
-            {
-                buyPrice = (Math.Min(buyPrice, price));
-                profit = (Math.Max(profit, price- buyPrice));
-            }
-            return profit;
-        }
-
         public int MaxProfit(int[] prices) {
             
             int profit = 0;
@@ -91,7 +73,25 @@ namespace Algorithms.LeetCode.Arrays
             
             return profit;
         }
+        
+        public int MaxProfitOptimized(int[] prices) 
+        {            
+            if(prices.Length < 1)
+            {
+                return 0;
+            }
 
+            int profit = int.MinValue;
+            int buyPrice = int.MaxValue;
+
+            foreach(var price in prices)
+            {
+                buyPrice = (Math.Min(buyPrice, price));
+                profit = (Math.Max(profit, price- buyPrice));
+            }
+            return profit;
+        }
+        
         [Fact]
         public void TestWrapper1()
         {
@@ -99,7 +99,7 @@ namespace Algorithms.LeetCode.Arrays
             var result = MaxProfit(arr1);
             Assert.Equal(6, result);
         }
-        
+                
         [Fact]
         public void TestWrapper2()
         {
@@ -107,5 +107,6 @@ namespace Algorithms.LeetCode.Arrays
             var result = MaxProfitOptimized(arr1);
             Assert.Equal(6, result);
         }
+
     }
 }
