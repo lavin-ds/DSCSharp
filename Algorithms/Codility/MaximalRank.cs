@@ -34,9 +34,6 @@ Constraints:
     0 <= ai, bi <= n-1
     ai != bi
     Each pair of cities has at most one road connecting them.
-
-
-
 */
 using System.Collections.Generic;
 using Xunit;
