@@ -22,9 +22,9 @@ Explanation: There are 5 roads that are connected to cities 1 or 2.
 
 Example 3:
 
-Input: n = 8, roads = [[0,1],[1,2],[2,3],[2,4],[5,6],[5,7]]
-Output: 5
-Explanation: The network rank of 2 and 5 is 5. Notice that all the cities do not have to be connected.
+Input: n = 6, roads = [[1,2],[2,3],[4,5],[5,6]]
+Output: 2
+Explanation: The network rank of 1 and 2 is 2. Notice that all the cities have to be connected.
 
 Constraints:
 
@@ -86,7 +86,7 @@ namespace Algorithms.Codility
 
         public int solutionFind2(int[] A, int[] B, int N) 
         {
-             if(A.Length ==0 && B.Length == 0 )
+            if(A.Length ==0 && B.Length == 0 )
                 return 0;
 
             int[] arr = new int[N+1];
