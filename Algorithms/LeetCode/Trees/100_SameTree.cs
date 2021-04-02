@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 /*
 100. Same Tree
 https://leetcode.com/problems/same-tree/
@@ -74,6 +75,59 @@ namespace Algorithms.LeetCode.Trees
             }
             return false;
         }
+
+        public bool IsSameTree2(BinaryTreeNode p, BinaryTreeNode q) {
+            if(p==null && q == null)
+                return true;
+            if(p==null || q == null)
+                return false;
+            Queue<BinaryTreeNode> stage = new Queue<BinaryTreeNode>();
+
+            stage.Enqueue(p);
+            stage.Enqueue(q);
+
+            while(stage.Count>0)
+            {
+                p = stage.Dequeue();
+                q = stage.Dequeue();
+
+                if(!Check(p,q)) return false;
+                if(p!=null)
+                {
+                    if(!Check(p.left, q.left)) return false;
+
+                    if(p.left !=null)
+                    {
+
+                        stage.Enqueue(p.left);
+                        stage.Enqueue(q.left);
+                    }
+
+                    if(!Check(p.right, q.right)) return false;
+
+                    if(p.right !=null)
+                    {
+
+                        stage.Enqueue(p.right);
+                        stage.Enqueue(q.right);
+                    }
+                }
+            }
+
+            return true;
+        }
+
+        public bool Check(BinaryTreeNode p, BinaryTreeNode q)
+        {
+            if(p==null && q == null)
+                return true;
+            if(p==null || q == null)
+                return false;
+            if(p.data == q.data)
+                return true;           
+            return false;
+        }
+
         //TODO: Write a test wrapper for the method
     }
 }
