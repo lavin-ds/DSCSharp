@@ -116,80 +116,80 @@ namespace Algorithms.LeetCode.Strings
         public void TestWrap()
         {
             string s = "aabcc";            ;
-            Assert.Equal(false,CheckPalindrome(s));
+            Assert.False(CheckPalindrome(s));
 
             s = "aacc";
-            Assert.Equal(false,CheckPalindrome(s));
+            Assert.False(CheckPalindrome(s));
 
             s = "abcc";
-            Assert.Equal(false,CheckPalindrome(s));
+            Assert.False(CheckPalindrome(s));
 
             s = "aeffgcgca";
-            Assert.Equal(false,CheckPalindrome(s));
+            Assert.False(CheckPalindrome(s));
 
             s = "mamad";
-            Assert.Equal(false,CheckPalindrome(s));
+            Assert.False(CheckPalindrome(s));
 
             s = "asflkj";
-            Assert.Equal(false,CheckPalindrome(s));
+            Assert.False(CheckPalindrome(s));
 
             s = "nitin";
-            Assert.Equal(true,CheckPalindrome(s));
+            Assert.False(!CheckPalindrome(s));
 
             s = "A man, a plan, a canal: Panama";
-            Assert.Equal(true,CheckPalindrome(s));
+            Assert.False(!CheckPalindrome(s));
 
             s = "race a car";
-            Assert.Equal(false,CheckPalindrome(s));
+            Assert.False(CheckPalindrome(s));
 
             s = "0P";
-            Assert.Equal(false,CheckPalindrome(s));
+            Assert.False(CheckPalindrome(s));
 
             s = "abb";
-            Assert.Equal(false,CheckPalindrome(s));
+            Assert.False(CheckPalindrome(s));
 
              s = "9,8";
-            Assert.Equal(false,CheckPalindrome(s));
+            Assert.False(CheckPalindrome(s));
         }
 
         [Fact]
         public void TestWrap1()
         {
             string s = "aabcc";            ;
-            Assert.Equal(false,IsPalindromeOptimized(s));
+            Assert.False(IsPalindromeOptimized(s));
 
             s = "aacc";
-            Assert.Equal(false,IsPalindromeOptimized(s));
+            Assert.False(IsPalindromeOptimized(s));
 
             s = "abcc";
-            Assert.Equal(false,IsPalindromeOptimized(s));
+            Assert.False(IsPalindromeOptimized(s));
 
             s = "aeffgcgca";
-            Assert.Equal(false,IsPalindromeOptimized(s));
+            Assert.False(IsPalindromeOptimized(s));
 
             s = "mamad";
-            Assert.Equal(false,IsPalindromeOptimized(s));
+            Assert.False(IsPalindromeOptimized(s));
 
             s = "asflkj";
-            Assert.Equal(false,IsPalindromeOptimized(s));
+            Assert.False(IsPalindromeOptimized(s));
 
             s = "nitin";
-            Assert.Equal(true,IsPalindromeOptimized(s));
+            Assert.False(!IsPalindromeOptimized(s));
 
             s = "A man, a plan, a canal: Panama";
-            Assert.Equal(true,IsPalindromeOptimized(s));
+            Assert.False(!IsPalindromeOptimized(s));
 
             s = "race a car";
-            Assert.Equal(false,IsPalindromeOptimized(s));
+            Assert.False(IsPalindromeOptimized(s));
 
             s = "0P";
-            Assert.Equal(false,IsPalindromeOptimized(s));
+            Assert.False(IsPalindromeOptimized(s));
 
             s = "abb";
-            Assert.Equal(false,IsPalindromeOptimized(s));
+            Assert.False(IsPalindromeOptimized(s));
 
              s = "9,8";
-            Assert.Equal(false,IsPalindromeOptimized(s));
+            Assert.False(IsPalindromeOptimized(s));
         }
     }
 }
