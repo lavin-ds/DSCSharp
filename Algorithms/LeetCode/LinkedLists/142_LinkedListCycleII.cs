@@ -88,7 +88,7 @@ namespace Algorithms.LeetCode.LinkedLists
             obj.AddAtTail(5);
 
             var res = obj.DetectCycle();
-            Assert.Equal(null,res);
+            Assert.Null(res);
  
             obj = new LinkedListCycleII();
             obj.AddAtHead(1);

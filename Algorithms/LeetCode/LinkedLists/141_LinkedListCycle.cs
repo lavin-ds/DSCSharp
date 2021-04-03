@@ -107,7 +107,7 @@ namespace Algorithms.LeetCode.LinkedLists
             obj.AddAtTail(5);
 
             var res = obj.HasCycle();
-            Assert.Equal(false,res);
+            Assert.False(res);
  
             obj = new LinkedListCycle();
             obj.AddAtHead(1);
@@ -119,7 +119,7 @@ namespace Algorithms.LeetCode.LinkedLists
 
             obj.CreateCycle2();
             res = obj.HasCycle();
-            Assert.Equal(true,res);
+            Assert.True(res);
 
             obj = new LinkedListCycle();
             obj.AddAtHead(1);
@@ -131,7 +131,7 @@ namespace Algorithms.LeetCode.LinkedLists
 
             obj.CreateCycle();
             res = obj.HasCycle();
-            Assert.Equal(true,res); 
+            Assert.True(res); 
         } 
     }
 }
