@@ -1,8 +1,7 @@
 /*
-GoodNodes or Visible Nodes
-
+1448. GoodNodes or Visible Nodes
 https://leetcode.com/problems/count-good-nodes-in-binary-tree/
-
+Meduim
 
 Given a binary tree root, a node X in the tree is named good if in the path from root to X there are no nodes with a value greater than X.
 
