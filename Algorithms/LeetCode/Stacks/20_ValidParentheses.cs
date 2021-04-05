@@ -1,3 +1,4 @@
+using System.Data;
 using System.Reflection.Metadata.Ecma335;
 /*
 20. Valid Parentheses
@@ -36,14 +37,10 @@ Example 5:
 Input: s = "{[]}"
 Output: true
 
- 
-
 Constraints:
 
     1 <= s.length <= 104
     s consists of parentheses only '()[]{}'.
-
-
  */
 
 using Xunit;
@@ -54,7 +51,7 @@ namespace Algorithms.LeetCode.Stacks
 {
     public class ValidParentheses 
     {
-         public bool IsValid(string s) 
+        public bool IsValid(string s) 
         {
             Stack stage = new Stack();
             for(int i = 0; i<s.Length; i++)
@@ -66,30 +63,72 @@ namespace Algorithms.LeetCode.Stacks
                 }
                 else
                 {
-                    switch(s[i])
+                    if(stage.Count > 0)
                     {
-                        case ')' :
-                            if(Convert.ToChar(stage.Peek()) == '(')
-                                stage.Pop();
-                            else 
-                                return false;                        
-                            break;
-                        case ']' :
-                            if(Convert.ToChar(stage.Peek()) == ']')
-                                stage.Pop();
-                            else 
-                                return false;
-                            break;
-                        case '}' :
-                            if(Convert.ToChar(stage.Peek()) == '}')
-                                stage.Pop();
-                            else 
-                                return false;
-                            break;
+                        switch(s[i])
+                        {
+                            case ')' :
+                                if(Convert.ToChar(stage.Peek()) == '(')
+                                    stage.Pop();
+                                else 
+                                    return false;                        
+                                break;
+                            case ']' :
+                                if(Convert.ToChar(stage.Peek()) == '[')
+                                    stage.Pop();
+                                else 
+                                    return false;
+                                break;
+                            case '}' :
+                                if(Convert.ToChar(stage.Peek()) == '{')
+                                    stage.Pop();
+                                else 
+                                    return false;
+                                break;
+                        }
                     }
-                }
-                return false;
+                    else
+                        return false;
+                }               
             }
+            
+            if(stage.Count == 0)
+                    return true;
+            return false;
+        }        
+        
+        [Fact]
+        public void TestWrapper1()
+        {
+            string s = "([{}])";
+            var result = IsValid(s);
+
+            Assert.True(result);
+
+            s = "()";
+            result = IsValid(s);
+
+            Assert.True(result);
+
+            s = "()[]{}";
+            result = IsValid(s);
+
+            Assert.True(result);
+
+            s = "(]";
+            result = IsValid(s);
+
+            Assert.False(result);
+
+            s = "([)]";
+            result = IsValid(s);
+
+            Assert.False(result);
+            
+            s = "{[]}";
+            result = IsValid(s);
+
+            Assert.True(result);
         }
     }
 }
