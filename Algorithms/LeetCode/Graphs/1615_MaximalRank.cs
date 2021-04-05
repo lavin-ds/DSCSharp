@@ -41,7 +41,7 @@ Constraints:
 using System.Collections.Generic;
 using Xunit;
 
-namespace Algorithms.Graphs
+namespace Algorithms.LeetCode.Graphs
 {
     public class MaximalNetworkRank
     { 
