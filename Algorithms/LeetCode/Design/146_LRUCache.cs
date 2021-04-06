@@ -171,8 +171,12 @@ namespace Algorithms.LeetCode.Design
         {
             if(nodeMap.ContainsKey(key))
             {
-                cache.UpgradeToHead(nodeMap[key]);
-                return nodeMap[key].Data;                
+                if(nodeMap[key].Data != -1)
+                {
+                    cache.UpgradeToHead(nodeMap[key]);
+                    return nodeMap[key].Data;
+                }
+                return -1;                                
             }
             else
             {
@@ -267,6 +271,25 @@ namespace Algorithms.LeetCode.Design
             Assert.Equal(6, lRUCache.Get(2)); // return 6
         }
 
+
+        [Fact]
+        public void TestWrap7()
+        {      
+            LRUCache lRUCache = new LRUCache(4);
+            Assert.Equal(-1, lRUCache.Get(2)); // return -1           
+            lRUCache.Put(2, 2); // cache is {2=2}
+            Assert.Equal(-1, lRUCache.Get(1)); // return -1           
+            lRUCache.Put(1, 1); // cache is {2=2, 1=1}
+            lRUCache.Put(3, 3); // cache is {2=2, 1=1, 3=3}
+            lRUCache.Put(4, 4); // cache is {2=2, 1=1, 3=3, 4=4}
+            lRUCache.Put(5, 5); // cache is {1=1, 3=3, 4=4, 5=5}
+            Assert.Equal(1, lRUCache.Get(1)); // return 2 // cache is { 3=3, 4=4, 5=5, 1=1}   
+            lRUCache.Put(1, 1); // cache is {3=3, 4=4, 5=5, 1=1} 
+            Assert.Equal(1, lRUCache.Get(1)); // return 2            
+            Assert.Equal(-1, lRUCache.Get(2)); // return 6
+        }
+
+
         [Fact]
         public void TestWrap6()
         {      
@@ -274,46 +297,74 @@ namespace Algorithms.LeetCode.Design
             lRUCache.Put(10, 13); // cache is {10=13}
             lRUCache.Put(3, 17); // cache is {10=13, 3=17}
             lRUCache.Put(6, 11); // cache is {10=13, 3=17, 6=11}
-            lRUCache.Put(10, 5); // cache is {10=5, 3=17, 6=11}
-            lRUCache.Put(9, 10); // cache is {10=5, 3=17, 6=11, 9=10}
+            lRUCache.Put(10, 5); // cache is {3=17, 6=11, 10=5}
+            lRUCache.Put(9, 10); // cache is {3=17, 6=11, 10=5, 9=10}
             Assert.Equal(-1, lRUCache.Get(13)); // return -1
-            lRUCache.Put(2, 19); // cache is {10=5, 3=17, 6=11, 9=10, 2=19}
-            Assert.Equal(19, lRUCache.Get(2)); // return 19
-            Assert.Equal(17, lRUCache.Get(3)); // return 17
-            lRUCache.Put(5, 25); // cache is {10=5, 3=17, 6=11, 9=10, 2=19, 5=25}
+            lRUCache.Put(2, 19); // cache is {3=17, 6=11, 10=5, 9=10, 2=19}
+            Assert.Equal(19, lRUCache.Get(2)); // return 19 // cache is {3=17, 6=11, 10=5, 9=10, 2=19}
+            Assert.Equal(17, lRUCache.Get(3)); // return 17  // cache is {6=11, 10=5, 9=10, 2=19, 3=17}
+            lRUCache.Put(5, 25); // cache is {6=11, 10=5, 9=10, 2=19, 3=17, 5=25}
             Assert.Equal(-1, lRUCache.Get(8)); // return -1
-            lRUCache.Put(9, 22); // cache is {10=5, 3=17, 6=11, 9=22, 2=19, 5=25}
-            lRUCache.Put(5, 5); // cache is {10=5, 3=17, 6=11, 2=19, 9=22, 5=5}
-            lRUCache.Put(1, 30); // cache is {10=5, 3=17, 6=11, 2=19, 5=5, 9=22, 1=30}
+            lRUCache.Put(9, 22); // cache is {6=11, 10=5, 2=19, 3=17, 5=25, 9=22}
+            lRUCache.Put(5, 5); // cache is {6=11, 10=5, 2=19, 3=17, 9=22, 5=5}
+            lRUCache.Put(1, 30); // cache is {6=11, 10=5, 2=19, 3=17, 9=22, 5=5, 1=30}
             Assert.Equal(-1, lRUCache.Get(11)); // return -1
-            lRUCache.Put(9, 12); // cache is {10=5, 3=17, 6=11, 9=12, 2=19, 5=5, 1=30}
+            lRUCache.Put(9, 12); // cache is {6=11, 10=5, 2=19, 3=17, 5=5, 1=30, 9=12}
             Assert.Equal(-1, lRUCache.Get(7)); // return -1
-            Assert.Equal(5, lRUCache.Get(5)); // return 5
+            Assert.Equal(5, lRUCache.Get(5)); // return 5  // cache is {3=17, 6=11, 10=5, 2=19, 1=30, 9=12, 5=5}
             Assert.Equal(-1, lRUCache.Get(8)); // return -1
-            Assert.Equal(12, lRUCache.Get(9)); // return 12
-            lRUCache.Put(4, 30); // cache is {10=5, 3=17, 6=11, 9=12, 2=19, 5=5, 1=30, 4=30}
-            lRUCache.Put(9, 3); // cache is {10=5, 3=17, 6=11, 9=3, 2=19, 5=5, 1=30, 4=30}
+            Assert.Equal(12, lRUCache.Get(9)); // return 12 // cache is {3=17, 6=11, 10=5, 2=19, 1=30, 5=5, 9=12}
+            lRUCache.Put(4, 30); // cache is {3=17, 6=11, 10=5, 2=19, 1=30, 5=5, 9=12, 4=30}
+            lRUCache.Put(9, 3); // cache is {3=17, 6=11, 10=5, 2=19, 1=30, 5=5, 4=30, 9=3}
             Assert.Equal(3, lRUCache.Get(9)); // return 3
+            Assert.Equal(5, lRUCache.Get(10)); // return 5 // cache is {3=17, 6=11, 2=19, 1=30, 5=5, 4=30, 9=3, 10=5}
             Assert.Equal(5, lRUCache.Get(10)); // return 5
-            Assert.Equal(5, lRUCache.Get(10)); // return 5
-            lRUCache.Put(6, 14); // cache is {10=5, 3=17, 6=14, 9=3, 2=19, 5=5, 1=30, 4=30}
-            lRUCache.Put(3, 1); // cache is {10=5, 3=1, 6=14, 9=3, 2=19, 5=5, 1=30, 4=30}
+            lRUCache.Put(6, 14); // cache is {3=17, 2=19, 1=30, 5=5, 4=30, 9=3, 10=5 6=14}
+            lRUCache.Put(3, 1); // cache is {2=19, 1=30, 5=5, 4=30, 9=3, 10=5 6=14, 3=1}
             Assert.Equal(1, lRUCache.Get(3)); // return 1
-            lRUCache.Put(10, 11); // cache is {10=11, 3=1, 6=14, 9=3, 2=19, 5=5, 1=30, 4=30}
+            lRUCache.Put(10, 11); // cache is {2=19, 1=30, 5=5, 4=30, 9=3, 6=14, 3=1, 10=11}
             Assert.Equal(-1, lRUCache.Get(8)); // return -1
-            lRUCache.Put(2, 14); // cache is {10=11, 3=1, 6=14, 9=3, 2=14, 5=5, 1=30, 4=30}
-            Assert.Equal(30, lRUCache.Get(1)); // return 30
-            Assert.Equal(5, lRUCache.Get(5)); // return 5
-            Assert.Equal(30, lRUCache.Get(4)); // return 30
-            lRUCache.Put(11, 4); // cache is {10=11, 3=1, 6=14, 9=3, 2=14, 5=5, 1=30, 4=30, 11=4}
-            lRUCache.Put(12, 24); // cache is {10=11, 3=1, 6=14, 9=3, 2=14, 5=5, 1=30, 4=30, 11=4, 12=24}
-            lRUCache.Put(5, 18); // cache is {10=11, 3=1, 6=14, 9=3, 2=14, 5=5, 1=30, 4=30, 11=4, 12=24, 5=18}
+            lRUCache.Put(2, 14); // cache is {1=30, 5=5, 4=30, 9=3, 6=14, 3=1, 10=11, 2=14}
+            Assert.Equal(30, lRUCache.Get(1)); // return 30 // cache is {5=5, 4=30, 9=3, 6=14, 3=1, 10=11, 2=14, 1=30}
+            Assert.Equal(5, lRUCache.Get(5)); // return 5 // cache is {4=30, 9=3, 6=14, 3=1, 10=11, 2=14, 1=30, 5=5}
+            Assert.Equal(30, lRUCache.Get(4)); // return 30 // cache is {9=3, 6=14, 3=1, 10=11, 2=14, 1=30, 5=5, 4=30}
+            lRUCache.Put(11, 4); // cache is {9=3, 6=14, 3=1, 10=11, 2=14, 1=30, 5=5, 4=30, 11=4}
+            lRUCache.Put(12, 24); // cache is {9=3, 6=14, 3=1, 10=11, 2=14, 1=30, 5=5, 4=30, 11=4, 12=24}
+            lRUCache.Put(5, 18); // cache is {9=3, 6=14, 3=1, 10=11, 2=14, 1=30, 4=30, 11=4, 12=24, 5=18}
             Assert.Equal(-1, lRUCache.Get(13)); // return -1
-           
+            lRUCache.Put(7, 23); // cache is {6=14, 3=1, 10=11, 2=14, 1=30, 4=30, 11=4, 12=24, 5=18, 7=23}
+            Assert.Equal(-1, lRUCache.Get(8)); // return -1
+            Assert.Equal(24, lRUCache.Get(12)); // return 24 / cache is {6=14, 3=1, 10=11, 2=14, 1=30, 4=30, 11=4, 5=18, 7=23, 12=24}
+            lRUCache.Put(3, 27); // cache is {6=14, 10=11, 2=14, 1=30, 4=30, 11=4, 5=18, 7=23, 12=24 3=27}
+            lRUCache.Put(2, 12); // cache is {6=14, 10=11, 1=30, 4=30, 11=4, 5=18, 7=23, 12=24 3=27, 2=12}
+            Assert.Equal(18, lRUCache.Get(5)); // return 18  // cache is {6=14, 10=11, 1=30, 4=30, 11=4, 7=23, 12=24 3=27, 2=12, 5=18}
+            lRUCache.Put(2, 9); // cache is {10=11, 1=30, 4=30, 11=4, 7=23, 12=24 3=27, 2=12, 5=18, 9=2}
+            lRUCache.Put(13, 4); // cache is {1=30, 4=30, 11=4, 7=23, 12=24 3=27, 2=12, 5=18, 9=2, 13=4}
+            lRUCache.Put(8, 18); // cache is {4=30, 11=4, 7=23, 12=24 3=27, 2=12, 5=18, 9=2, 13=4, 8=18}
+            lRUCache.Put(1, 7); // cache is {11=4, 7=23, 12=24 3=27, 2=12, 5=18, 9=2, 13=4, 8=18, 1=7}
+            Assert.Equal(-1, lRUCache.Get(6)); // return -1
+            lRUCache.Put(9, 29); // cache is {11=4, 7=23, 12=24 3=27, 2=12, 5=18, 13=4, 8=18, 1=7, 9=29}
+            lRUCache.Put(8, 21); // cache is {11=4, 7=23, 12=24 3=27, 2=12, 5=18, 13=4, 1=7, 9=29, 8=21}
+            Assert.Equal(18, lRUCache.Get(5)); // return 18 // cache is {11=4, 7=23, 12=24 3=27, 2=12, 13=4, 1=7, 9=29, 8=21, 5=18}
+            lRUCache.Put(6, 30); // cache is {11=4, 7=23, 12=24 3=27, 2=12, 13=4, 1=7, 9=29, 8=21, 5=18}
+            lRUCache.Put(1, 12); // cache is {11=4, 7=23, 12=24 3=27, 2=12, 13=4, 9=29, 8=21, 5=18, 1=12}
+            Assert.Equal(-1, lRUCache.Get(10)); // return 11
+            lRUCache.Put(4, 15); // cache is {7=23, 12=24 3=27, 2=12, 13=4, 9=29, 8=21, 5=18, 1=12, 4=15}
+            lRUCache.Put(7, 22); // cache is {12=24 3=27, 2=12, 13=4, 9=29, 8=21, 5=18, 1=12, 4=15, 7=22}
+            lRUCache.Put(11, 26); // cache is {3=27, 2=12, 13=4, 9=29, 8=21, 5=18, 1=12, 4=15, 7=22, 11=26}
+            lRUCache.Put(8, 17); // cache is {3=27, 2=12, 13=4, 9=29, 5=18, 1=12, 4=15, 7=22, 11=26, 8=17}
+            lRUCache.Put(9, 29); // cache is {3=27, 2=12, 13=4, 5=18, 1=12, 4=15, 7=22, 11=26, 8=17, 9=29}
+            Assert.Equal(18, lRUCache.Get(5)); // return 18 // cache is {3=27, 2=12, 13=4, 1=12, 4=15, 7=22, 11=26, 8=17, 9=29, 5=18}
+            lRUCache.Put(3, 4); // cache is {2=12, 13=4, 1=12, 4=15, 7=22, 11=26, 8=17, 9=29, 5=18, 3=4}
+            lRUCache.Put(11, 30); // cache is {2=12, 13=4, 1=12, 4=15, 7=22, 8=17, 9=29, 5=18, 3=4, 11=30}
+            Assert.Equal(-1, lRUCache.Get(12));
+            lRUCache.Put(4, 29); // cache is {2=12, 13=4, 1=12, 7=22, 8=17, 9=29, 5=18, 3=4, 11=30, 4=29}
+            Assert.Equal(4, lRUCache.Get(3)); // cache is {2=12, 13=4, 1=12, 7=22, 8=17, 9=29, 5=18, 11=30, 4=29, 3=4}
+            Assert.Equal(29, lRUCache.Get(9)); // cache is {2=12, 13=4, 1=12, 7=22, 8=17, 5=18, 11=30, 4=29, 3=4, 9=29}
+            Assert.Equal(30, lRUCache.Get(6)); 
+            lRUCache.Put(3, 4); // cache is {2=12, 13=4, 1=12, 7=22, 8=17, 5=18, 11=30, 4=29, 9=29, 3=4}
+            Assert.Equal(12, lRUCache.Get(1));  // cache is {2=12, 13=4, 7=22, 8=17, 5=18, 11=30, 4=29, 9=29, 3=4, 1=12}
+            Assert.Equal(-1, lRUCache.Get(10));
         }
-
-            //   "put",  "put",      "put",  "get",  "put",     "get",  "get",  "put",  "put",  "get",  "put","put","put","put","get","put","put","get","put","put","get","put","put","put","put","put","get","put","put","get","put","get","get","get","put","get","get","put","put","put","put","get","put","put","put","put","get","get","get","put","put","put","get","put","put","put","get","put","put","put","get","get","get","put","put","put","put","get","put","put","put","put","put","put","put"]
-            //   [11,4], [12,24],    [5,18], [13],   [7,23],    [8],    [12],   [3,27], [2,12], [5],    [2,9],[13,4],[8,18],[1,7],[6],[9,29],[8,21],[5],[6,30],[1,12],[10],[4,15],[7,22],[11,26],[8,17],[9,29],[5],[3,4],[11,30],[12],[4,29],[3],[9],[6],[3,4],[1],[10],[3,29],[10,28],[1,20],[11,13],[3],[3,12],[3,8],[10,9],[3,26],[8],[7],[5],[13,17],[2,27],[11,15],[12],[9,19],[2,15],[3,16],[1],[12,17],[9,1],[6,19],[4],[5],[5],[8,1],[11,7],[5,2],[9,28],[1],[2,2],[7,4],[4,22],[7,24],[9,26],[13,28],[11,26]]
-
     }
 }
