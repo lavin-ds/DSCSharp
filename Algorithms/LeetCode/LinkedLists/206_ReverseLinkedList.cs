@@ -46,5 +46,38 @@ namespace Algorithms.LeetCode.LinkedLists
             }
             return currNode;   
         }
+
+                
+        [Fact]
+        public void TestWrapReverseList()
+        {
+            // Your MyLinkedList object will be instantiated and called as such:
+            ReverseList obj = new ReverseList();
+            
+            obj.AddAtHead(1);
+            obj.AddAtTail(2);
+            obj.AddAtTail(3);
+            obj.AddAtTail(4);
+            obj.AddAtTail(5);
+
+            var res = obj.ReverseListIterative(obj._head);
+            Assert.Equal(5, res.val);
+        } 
+
+        [Fact]
+        public void TestWrapReverseList2()
+        {
+           // Your MyLinkedList object will be instantiated and called as such:
+            ReverseList obj = new ReverseList();
+            
+            obj.AddAtHead(1);
+            obj.AddAtTail(2);
+            obj.AddAtTail(3);
+            obj.AddAtTail(4);
+            obj.AddAtTail(5);
+
+            var res = obj.ReverseListIterative(obj._head);
+            Assert.Equal(5, res.val);
+        } 
     }
 }
