@@ -8,5 +8,6 @@ The project can be run using VSCode and the tests use XUnit.
 4. Stack (Dynamic using LinkedLists, with generics)
 5. Tree (Traversal only)
 6. Queue
+7. BST
 
 //Need to  update BST, Disjoint Sets, PriorityQueues, Hashmaps
