@@ -9,5 +9,6 @@ The project can be run using VSCode and the tests use XUnit.
 5. Tree (Traversal only)
 6. Queue
 7. BST
+8. LRU Cache
 
 //Need to  update BST, Disjoint Sets, PriorityQueues, Hashmaps
