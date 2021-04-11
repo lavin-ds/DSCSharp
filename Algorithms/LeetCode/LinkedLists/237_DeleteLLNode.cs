@@ -61,6 +61,36 @@ namespace Algorithms.LeetCode.LinkedLists
         }
 
                 
-        
+        [Fact]
+        public void TestWrapReverseList()
+        {
+            // Your MyLinkedList object will be instantiated and called as such:
+            DeleteLLNode obj = new DeleteLLNode();
+            
+            obj.AddAtHead(1);
+            obj.AddAtTail(2);
+            obj.AddAtTail(5);
+            obj.AddAtTail(5);
+            obj.AddAtTail(5);
+
+            obj.DeleteNode(obj._head.next);
+            Assert.Equal(5, obj._head.next.val);
+        } 
+
+        [Fact]
+        public void TestWrapReverseList2()
+        {
+           // Your MyLinkedList object will be instantiated and called as such:
+            DeleteLLNode obj = new DeleteLLNode();
+            
+            obj.AddAtHead(1);
+            obj.AddAtTail(2);
+            obj.AddAtTail(6);
+            obj.AddAtTail(7);
+            obj.AddAtTail(5);
+
+            obj.DeleteNode(obj._head.next.next);
+            Assert.Equal(7, obj._head.next.next.val);
+        } 
     }
 }
