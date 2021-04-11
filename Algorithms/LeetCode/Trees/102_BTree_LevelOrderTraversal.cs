@@ -33,7 +33,6 @@ Constraints:
 */
 
 using System.Collections.Generic;
-using DataStructures.ADT;
 using DataStructures.Entities;
 using Xunit;
 
@@ -50,37 +49,39 @@ namespace Algorithms.LeetCode.Trees
                 return listTotal.ToArray();    
 
             Queue<BinaryTreeNode> staging = new Queue<BinaryTreeNode>();
-            listTotal.Add(new List<int>{root.data});
+            //listTotal.Add(new List<int>{root.data});
             
             var listLocal = new List<int>();
-
+            var queueLength = 1;
             staging.Enqueue(root);
-            while(staging.Count != 0)
-            {
-                var temp = staging.Dequeue();
-                if(temp.left != null)
+            while(staging.Count > 0)   
+            {    
+                
+                if(queueLength == 0)
                 {
-                    staging.Enqueue(temp.left);
-                    listLocal.Add(temp.left.data);
-                }
-                if(temp.right!=null)
-                {
-                    staging.Enqueue(temp.right);
-                    listLocal.Add(temp.right.data);
-                }
-                if(listLocal.Count==2)
-                {
+                    queueLength = staging.Count;
                     listTotal.Add(listLocal);
                     listLocal = new List<int>();
-                }
-                if(listLocal.Count>0 && listLocal.Count < 2)
+                }             
+
+                var temp = staging.Dequeue();
+                queueLength--;
+            
+                if(temp!=null)
                 {
-                    listTotal.Add(listLocal);                
+                    staging.Enqueue(temp.left);
+                    staging.Enqueue(temp.right);
+                    listLocal.Add(temp.data);
                 }
             }
+            if(listLocal.Count >0)
+            {
+                listTotal.Add(listLocal);                 
+            }                
+
             return listTotal.ToArray();
         }
-        
+       
         //TODO: Write a test wrapper for the method
         /*
         [3,9,20,null,null,15,7]
