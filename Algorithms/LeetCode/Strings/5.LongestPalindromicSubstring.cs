@@ -1,4 +1,3 @@
-using System.Text;
 /*
 5. Longest Palindromic Substring
 https://leetcode.com/problems/longest-palindromic-substring/
@@ -32,7 +31,8 @@ Constraints:
     1 <= s.length <= 1000
     s consist of only digits and English letters (lower-case and/or upper-case)
  */
-
+ 
+using System.Text;
 using Xunit;
 
 namespace Algorithms.LeetCode.Strings
