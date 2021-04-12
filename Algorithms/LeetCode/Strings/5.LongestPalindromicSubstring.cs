@@ -85,5 +85,89 @@ namespace Algorithms.LeetCode.Strings
             }
             return true;
         }
+        
+        [Fact]
+        public void TestWrap2()
+        {
+            string s = "babad";       
+            Assert.Equal("bab", LongestPalindrome(s));
+
+            s = "aabcc";          
+            Assert.Equal("aa", LongestPalindrome(s));
+
+            s = "aacc";
+            Assert.Equal("aa", LongestPalindrome(s));
+
+            s = "abcc";
+            Assert.Equal("cc", LongestPalindrome(s));
+
+            s = "aeffgcgca";
+            Assert.Equal("gcg", LongestPalindrome(s));
+
+            s = "mamad";
+            Assert.Equal("mam", LongestPalindrome(s));
+
+            s = "asflkj";
+            Assert.Equal("a", LongestPalindrome(s));
+
+            s = "nitin";
+            Assert.Equal("nitin", LongestPalindrome(s));
+
+            s = "A man, a plan, a canal: Panama";
+            Assert.Equal("A man, a plan, a canal: Panama", LongestPalindrome(s));
+
+            s = "race a car"; 
+            Assert.Equal(" a ca", LongestPalindrome(s));
+
+            s = "0P";
+            Assert.Equal("0", LongestPalindrome(s));
+
+            s = "abb";
+            Assert.Equal("bb", LongestPalindrome(s));
+
+             s = "9,8";
+            Assert.Equal("9,",LongestPalindrome(s));
+        }
+
+
+        [Fact]
+        public void TestWrap3()
+        {
+            string s = "aabcc";            ;
+            Assert.False(CheckPalindrome(s));
+
+            s = "aacc";
+            Assert.False(CheckPalindrome(s));
+
+            s = "abcc";
+            Assert.False(CheckPalindrome(s));
+
+            s = "aeffgcgca";
+            Assert.False(CheckPalindrome(s));
+
+            s = "mamad";
+            Assert.False(CheckPalindrome(s));
+
+            s = "asflkj";
+            Assert.False(CheckPalindrome(s));
+
+            s = "nitin";
+            Assert.True(CheckPalindrome(s));
+
+            s = "A man, a plan, a canal: Panama";
+            Assert.True(CheckPalindrome(s));
+
+            s = "race a car";
+            Assert.False(CheckPalindrome(s));
+
+            s = "0P";
+            Assert.False(CheckPalindrome(s));
+
+            s = "abb";
+            Assert.False(CheckPalindrome(s));
+
+             s = "9,8";
+            Assert.False(CheckPalindrome(s));
+        }
     }
 }
