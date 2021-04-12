@@ -125,6 +125,49 @@ namespace Algorithms.LeetCode.Strings
         }   
 
         [Fact]
+        public void TestWrap1()
+        {
+            string s = "babad";       
+            Assert.Equal("bab", LongestPalindromeOptimizedN2(s));
+
+            s = "aabcc";          
+            Assert.Equal("aa", LongestPalindromeOptimizedN2(s));
+
+            s = "aacc";
+            Assert.Equal("aa", LongestPalindromeOptimizedN2(s));
+
+            s = "abcc";
+            Assert.Equal("cc", LongestPalindromeOptimizedN2(s));
+
+            s = "aeffgcgca";
+            Assert.Equal("gcg", LongestPalindromeOptimizedN2(s));
+
+            s = "mamad";
+            Assert.Equal("mam", LongestPalindromeOptimizedN2(s));
+
+            s = "asflkj";
+            Assert.Equal("a", LongestPalindromeOptimizedN2(s));
+
+            s = "nitin";
+            Assert.Equal("nitin", LongestPalindromeOptimizedN2(s));
+            
+            s = "amanaplanacanalpanama";
+            Assert.Equal("amanaplanacanalpanama", LongestPalindromeOptimizedN2(s));
+
+            s = "raceacar"; 
+            Assert.Equal("aca", LongestPalindromeOptimizedN2(s));
+
+            s = "0P";
+            Assert.Equal("0", LongestPalindromeOptimizedN2(s));
+
+            s = "abb";
+            Assert.Equal("bb", LongestPalindromeOptimizedN2(s));
+
+             s = "98";
+            Assert.Equal("9",LongestPalindromeOptimizedN2(s));
+        }
+
+        [Fact]
         public void TestWrap2()
         {
             string s = "babad";       
