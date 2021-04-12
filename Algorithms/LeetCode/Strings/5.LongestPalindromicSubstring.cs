@@ -85,7 +85,45 @@ namespace Algorithms.LeetCode.Strings
             }
             return true;
         }
-        
+           
+        public string LongestPalindromeOptimizedN2(string sMod) 
+        { 
+            StringBuilder stag = new StringBuilder("+");
+            foreach(var c in sMod)
+            {
+                stag.Append(c+"+");
+            }
+            var s = stag.ToString();
+            var _longestPalindrome = string.Empty;
+            char[] ca = s.ToLower().ToCharArray();
+            int i = 0, j=0,k=1;
+
+            while(i<s.Length)
+            {
+                while(j>-1 && j+k<=s.Length)
+                {
+                    var loc = s.Substring(j,k);
+                    if(loc[0] == loc[loc.Length-1])
+                    {
+                        if(_longestPalindrome.Length<loc.Length)
+                        {
+                            _longestPalindrome = loc;
+                        }
+                    }
+                    else
+                    {                             
+                        break;
+                    }                    
+                    j--;
+                    k=k+2;   
+                }                
+                i++;
+                j = i;
+                k = 1;
+            }
+            return _longestPalindrome.Replace("+", "");
+        }   
+
         [Fact]
         public void TestWrap2()
         {
