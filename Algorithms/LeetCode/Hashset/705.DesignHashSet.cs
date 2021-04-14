@@ -38,10 +38,67 @@ Constraints:
  
 Follow up: Could you solve the problem without using the built-in HashSet library?
 */
+using System.Collections.Generic;
 using Xunit;
 
 namespace Algorithms.LeetCode.HashSet
 {
+    public class MyHashSet 
+    {
+
+        public List<int>[] bucket;
+            
+        /** Initialize your data structure here. */
+        public MyHashSet() 
+        {
+            bucket = new List<int>[769];
+        }
+        
+        public void Add(int key) 
+        {
+            var hash = key%769;
+            
+            if(Contains(key))        
+                return;
+            
+            if(bucket[hash] == null)
+                bucket[hash] = new List<int>();
+            bucket[hash].Add(key);
+        }
+        
+        public void Remove(int key) 
+        {
+            var hash = key%769;
+            if(!Contains(key))        
+                return;
+            
+            for(int i = 0; i<bucket[hash].Count; i++)
+            {
+                if(bucket[hash][i] == key)
+                {
+                    bucket[hash].RemoveAt(i);
+                    return;
+                }
+            }            
+        }
+        
+        /** Returns true if this set contains the specified element */
+        public bool Contains(int key) 
+        {
+            var hash = key%769;        
+            if(bucket[hash] == null)        
+                return false;
+            
+            for(int i = 0; i<bucket[hash].Count; i++)
+            {
+                if(bucket[hash][i] == key)
+                    return true;            
+            }
+            
+            return false;
+        }
+    }
+    
     public class MyHashSetQuick
     {
         
@@ -74,7 +131,7 @@ namespace Algorithms.LeetCode.HashSet
     public class Test
     {
         [Fact]
-        public void TestWrapHasCycle()
+        public void TestWrapHashSetQuick()
         {
             MyHashSetQuick myHashSet = new MyHashSetQuick(1000001);
             myHashSet.Add(1);      // set = [1]
@@ -86,5 +143,6 @@ namespace Algorithms.LeetCode.HashSet
             myHashSet.Remove(2);   // set = [1]
             Assert.False(myHashSet.Contains(2)); // return False, (already removed)
         } 
+
     }
 }
