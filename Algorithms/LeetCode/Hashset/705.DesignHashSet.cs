@@ -1,4 +1,4 @@
-/* TODO: Properly with sequence chaining
+/* 
 705. Design HashSet
 https://leetcode.com/problems/design-hashset/
 Easy
