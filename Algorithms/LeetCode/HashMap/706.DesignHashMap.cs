@@ -102,4 +102,36 @@ namespace Algorithms.LeetCode.HashMap
             }            
         }
     }
+    
+    public class MyHashMapQuick
+    {   
+        private int[] arr;    
+    
+        /** Initialize your data structure here. */
+        public MyHashMapQuick() 
+        {
+            arr = new int[1000001];
+            for(int i = 0;i<arr.Length;i++)
+            {
+                arr[i] = -1;
+            }
+        }
+        
+        public void Put(int key, int value) 
+        {
+            arr[key] = value;
+        }
+        
+        public void Remove(int key) 
+        {
+            arr[key] = -1;
+        }
+        
+        /** Returns the value to which the specified key is mapped, or -1 if this map contains no mapping for the key */
+        public int Get(int key) 
+        {
+            return arr[key];
+        }
+    }
+   
 }
