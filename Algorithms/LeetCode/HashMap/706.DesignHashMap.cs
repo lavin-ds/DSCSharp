@@ -35,8 +35,6 @@ Constraints:
     0 <= key, value <= 106
     At most 104 calls will be made to put, get, and remove.
 
- 
-
 Follow up: Please do not use the built-in HashMap library.
 */
 
@@ -134,7 +132,7 @@ namespace Algorithms.LeetCode.HashMap
         }
     }
 
-    public class Test
+    public class TestHashMap
     {
         [Fact]
         public void TestWrapHashMapQuick()
