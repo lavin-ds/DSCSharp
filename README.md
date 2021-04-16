@@ -10,5 +10,8 @@ The project can be run using VSCode and the tests use XUnit.
 6. Queue
 7. BST
 8. LRU Cache
+9. Graphs(Cloning)
+10. HashSet(Separate chaining)
+11. HashMap(Separate chaining)
 
 //Need to  update BST, Disjoint Sets, PriorityQueues, Hashmaps
