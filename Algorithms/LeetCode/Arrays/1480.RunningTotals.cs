@@ -46,5 +46,15 @@ namespace Algorithms.LeetCode.Arrays
             }
             return nums;
         }
+
+        public int[] RunningSum2(int[] nums) 
+        {
+            //Index starts at 1 as we start with [i-1]
+            for(int i =1; i< nums.Length;i++)
+            {
+                nums[i] = nums[i]+ nums[i-1];
+            }
+            return nums;
+        }
     }
 }
