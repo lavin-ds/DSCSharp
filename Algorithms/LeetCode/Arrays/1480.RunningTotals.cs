@@ -72,6 +72,21 @@ namespace Algorithms.LeetCode.Arrays
             result = RunningSum(arr3);
             Assert.Equal(new int[]{3,4,6,16,17}, result);
         }
-          
+                
+        [Fact]
+        public void TestWrapper2()
+        {
+             int[] arr1 = {1,2,3,4};
+            var result = RunningSum2(arr1);
+            Assert.Equal(new int[]{1,3,6,10}, result);
+
+            int[] arr2 = {1,1,1,1,1};
+            result = RunningSum2(arr2);
+            Assert.Equal(new int[]{1,2,3,4,5}, result);
+
+            int[] arr3 = {3,1,2,10,1};
+            result = RunningSum2(arr3);
+            Assert.Equal(new int[]{3,4,6,16,17}, result);
+        }
     }
 }
