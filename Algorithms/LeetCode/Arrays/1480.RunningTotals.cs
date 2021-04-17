@@ -56,5 +56,22 @@ namespace Algorithms.LeetCode.Arrays
             }
             return nums;
         }
+
+        [Fact]
+        public void TestWrapper1()
+        {
+            int[] arr1 = {1,2,3,4};
+            var result = RunningSum(arr1);
+            Assert.Equal(new int[]{1,3,6,10}, result);
+
+            int[] arr2 = {1,1,1,1,1};
+            result = RunningSum(arr2);
+            Assert.Equal(new int[]{1,2,3,4,5}, result);
+
+            int[] arr3 = {3,1,2,10,1};
+            result = RunningSum(arr3);
+            Assert.Equal(new int[]{3,4,6,16,17}, result);
+        }
+          
     }
 }
