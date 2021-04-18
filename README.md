@@ -1,17 +1,26 @@
 # Data Structures and Algorithms in C#
 
-The project can be run using VSCode and the tests use XUnit.
+This project is an umbrella hosting various kinds of DataStructures and Algorithms problems I solve using C#.
 
-1. LinkedLists (with generics)
-2. Stack (Static Size, with sample problems)
-3. Stack (Dynamic using static arrays, with sample problems)
-4. Stack (Dynamic using LinkedLists, with generics)
-5. Tree (Traversal only)
-6. Queue
-7. BST
-8. LRU Cache
-9. Graphs(Cloning)
-10. HashSet(Separate chaining)
-11. HashMap(Separate chaining)
+I am using VSCode for my development and have tried to write test cases for most of the problems. The tests are written using XUnit.
 
-//Need to update Disjoint Sets, PriorityQueues
+- [Data Structures and Algorithms in C](#data-structures-and-algorithms-in-c)
+  - [Done](#done)
+  - [Todo](#todo)
+
+## Done
+
+- [X] LinkedLists
+- [X] Stacks
+- [X] Queue
+- [X] Trees
+- [X] Binary Search Trees
+- [X] LRU Cache
+- [X] Graphs
+- [X] HashSet
+- [X] HashMap
+
+## Todo
+
+- [ ] Disjoint Sets
+- [ ] Priority Queues
