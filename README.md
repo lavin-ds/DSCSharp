@@ -1,5 +1,5 @@
-# DSC
-Data Structures and Algorithms in C#
+# Data Structures and Algorithms in C#
+
 The project can be run using VSCode and the tests use XUnit.
 
 1. LinkedLists (with generics)
@@ -14,4 +14,4 @@ The project can be run using VSCode and the tests use XUnit.
 10. HashSet(Separate chaining)
 11. HashMap(Separate chaining)
 
-//Need to  update BST, Disjoint Sets, PriorityQueues, Hashmaps
+//Need to update Disjoint Sets, PriorityQueues
