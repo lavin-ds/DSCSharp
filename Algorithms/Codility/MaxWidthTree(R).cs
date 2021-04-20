@@ -98,5 +98,69 @@ namespace Algorithms.Codility
             Width(node.left, level+1);
             Width(node.right, level+1);
         }
+
+        [Fact]
+        public void TestWrap()
+        {
+            /*
+                        1
+                       / \
+                      2   3
+                         / \
+                        4   5
+            */
+            var s = "1,2,X,X,3,4,X,X,5";
+            var obj = new Codec();
+            var root = obj.Deserialize(s);
+            
+            var res = WidthOfBinaryTree(root);
+            Assert.Equal(2,res);
+
+
+             /*
+                        1
+                       / \
+                      2   3
+                     / \   \
+                    4   5   6
+            */
+            
+            s = "1,2,4,X,X,5,X,X,3,X,6";
+            obj = new Codec();
+            root = obj.Deserialize(s);
+            
+            res = WidthOfBinaryTree(root);
+            Assert.Equal(3,res);
+
+            /*
+                        1
+                       / \
+                      3   2
+                     / 
+                    5   
+            */
+            
+            s = "1,3,5,X,X,X,2";
+            obj = new Codec();
+            root = obj.Deserialize(s);
+            
+            res = WidthOfBinaryTree(root);
+            Assert.Equal(2,res);
+
+            /*
+                        1
+                       /
+                      3   
+                     / 
+                    5   
+            */
+            
+            s = "1,3,5,X,X,X";
+            obj = new Codec();
+            root = obj.Deserialize(s);
+            
+            res = WidthOfBinaryTree(root);
+            Assert.Equal(1,res);
+        }
     }
 }
