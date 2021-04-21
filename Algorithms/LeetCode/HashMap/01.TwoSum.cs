@@ -53,5 +53,21 @@ namespace Algorithms.LeetCode.HashMap
             }
             return new int[] {};        
         }
+   
+        [Fact]
+        public void TestWrap()  
+        {
+            int[] a = new int[]{2,7,11,15};
+            var target = 9;
+            Assert.Equal(new int[]{0,1}, TwoSum(a,target));
+            
+            int[] a1 = new int[]{3,2,4};
+            target = 6;
+            Assert.Equal(new int[]{1,2}, TwoSum(a1,target));
+
+            int[] a2 = new int[]{3,3};
+            target = 6;
+            Assert.Equal(new int[]{0,1}, TwoSum(a2,target));
+        }  
     }
 }
