@@ -63,5 +63,30 @@ namespace Algorithms.LeetCode.BinarySearchTrees
                 return ITTSearchBST(node.left);
             }
         }
+
+        [Fact]
+        public void TestWrap()
+        {
+            /*
+                        2
+                       / \
+                      1   3
+                         / \
+                        4   5 
+            */
+            var s = "2,1,X,X,3,4,X,X,5";
+            var obj = new Codec();
+            var root = obj.Deserialize(s);
+            /*
+                          3
+                         / \
+                        4   5 
+            */
+            var compare = "3,4,X,X,5";
+            var compareRoot = obj.Deserialize(compare);
+
+            var res = SearchBST(root,3);
+            Assert.Equal(compareRoot.val,res.val);
+       }
     }
 }
