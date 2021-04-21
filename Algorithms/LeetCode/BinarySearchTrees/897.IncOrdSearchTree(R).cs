@@ -78,5 +78,36 @@ namespace Algorithms.LeetCode.BinarySearchTrees
             }
             ITT(node.right);            
         }
+
+        [Fact]
+        public void TestWrap()
+        {
+            /*
+                        2
+                       / \
+                      1   4
+                         / \
+                        3   5 
+            */
+            var s = "2,1,X,X,4,3,X,X,5";
+            var obj = new Codec();
+            var root = obj.Deserialize(s);
+            /*
+                          1
+                           \
+                            2
+                             \
+                              3
+                               \
+                                4
+                                 \
+                                  5
+            */
+            var compare = "1,X,2,X,3,X,4,X,5";
+            var compareRoot = obj.Deserialize(compare);
+
+            var res = IncreasingBST(root);
+            Assert.Equal(compareRoot.val,res.val);
+       }
     }
 }
