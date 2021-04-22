@@ -65,5 +65,25 @@ namespace Algorithms.LeetCode.Trees
                 return newNode;
             }
         }
+        
+        [Fact]
+        public void TestWrap()
+        {
+            /*
+                     1                  2                        3
+                    / \                / \                      / \ 
+                   2   3              1   3          =>        4   5
+                      / \              \   \                  / \   \
+                     4   5              4   7                5  4    7
+            */
+            var s1 = "1,2,X,X,3,4,X,X,5";
+            var s2 = "2,1,X,4,3,X,7";
+            var obj = new Codec();
+            var root1 = obj.Deserialize(s1);
+            var root2 = obj.Deserialize(s2);
+            
+            var res = MergeTrees(root1, root2);
+            Assert.Equal(3,res.val);
+        }
     }
 }
