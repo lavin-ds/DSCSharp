@@ -67,5 +67,16 @@ namespace Algorithms.LeetCode.BinarySearchTrees
                 RangeSum(root.right);
             
         }
+
+        [Fact]
+        public void TestWrap()
+        {
+            var s = "1,2,X,X,3,4,X,X,5";
+            var obj = new Codec();
+            var root = obj.Deserialize(s);
+
+            var res = RangeSumBST(root,2,4);
+            Assert.Equal(9,res);
+       }
     }
 }
