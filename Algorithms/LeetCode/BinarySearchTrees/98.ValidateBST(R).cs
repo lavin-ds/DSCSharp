@@ -111,6 +111,33 @@ namespace Algorithms.LeetCode.Trees
             res = IsValidBST(root1);
             Assert.False(res);
 
+             /*
+                     5               
+                    / \               
+                   1   4              
+                      / \             
+                     3   6    
+            */
+            s1 = "5,1,X,X,4,3,X,X,6";
+            obj = new Codec();
+            root1 = obj.Deserialize(s1);
+            
+            res = IsValidBST(root1);
+            Assert.False(res);
+
+             /*
+                     3               
+                    / \               
+                   1   5              
+                      / \             
+                     4   6    
+            */
+            s1 = "3,1,X,X,5,4,X,X,6";
+            obj = new Codec();
+            root1 = obj.Deserialize(s1);
+            
+            res = IsValidBST(root1);
+            Assert.True(res);
         }
     }
 }
