@@ -79,5 +79,38 @@ namespace Algorithms.LeetCode.Trees
             }
             return true;
         }
+
+        [Fact]
+        public void TestWrap()
+        {
+            /*
+                     1               
+                    / \               
+                   2   3              
+                      / \             
+                     4   5    
+            */
+            var s1 = "1,2,X,X,3,4,X,X,5";
+            var obj = new Codec();
+            var root1 = obj.Deserialize(s1);
+            
+            var res = IsValidBST(root1);
+            Assert.False(res);
+
+             /*
+                     2               
+                    / \               
+                   1   3              
+                      / \             
+                     4   5    
+            */
+            s1 = "2,1,X,X,3,4,X,X,5";
+            obj = new Codec();
+            root1 = obj.Deserialize(s1);
+            
+            res = IsValidBST(root1);
+            Assert.False(res);
+
+        }
     }
 }
