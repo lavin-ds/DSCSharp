@@ -93,5 +93,39 @@ namespace Algorithms.LeetCode.Trees
             }
             return _lst;
         }
+
+        [Fact]
+        public void TestWrap()
+        {
+            /*
+                        1
+                       / \
+                      2   3
+                         / \
+                        4   5
+            */
+            var s = "1,2,X,X,3,4,X,X,5";
+            var obj = new Codec();
+            var root = obj.Deserialize(s);
+            var compare = new List<int>{1,2,3,4,5};
+            var res = PreorderTraversal(root);
+            Assert.Equal(compare,res);
+
+
+            /*
+                        1
+                       / \
+                      2   3
+                     / \   \
+                    4   5   6
+            */
+            
+            s = "1,2,4,X,X,5,X,X,3,X,6";
+            obj = new Codec();
+            root = obj.Deserialize(s);
+            compare = new List<int>{1,2,4,5,3,6};
+            res = PreorderTraversal(root);
+            Assert.Equal(compare,res);
+        }
     }
 }
