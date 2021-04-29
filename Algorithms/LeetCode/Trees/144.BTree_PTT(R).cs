@@ -86,5 +86,23 @@ namespace Algorithms.LeetCode.Trees
                 PTT(root.right);
             }
         }
+
+        [Fact]
+        public void TestWrap()
+        {
+            /*
+                        1
+                       / \
+                      2   3
+                         / \
+                        4   5
+            */
+            var s = "1,2,X,X,3,4,X,X,5";
+            var obj = new Codec();
+            var root = obj.Deserialize(s);
+            var compare = new List<int>{1,2,3,4,5};
+            var res = PreorderTraversal(root);
+            Assert.Equal(compare,res);
+        }
     }
 }
