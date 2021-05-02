@@ -81,6 +81,22 @@ namespace Algorithms.LeetCode.Trees
             var root = obj.Deserialize(s);
 
             Assert.False(IsSymmetric(root));
+
+
+            /*
+                        1
+                       / \
+                      2   3
+                     / \   \
+                    4   5   6
+            */
+            
+            s = "1,2,4,X,X,5,X,X,3,X,6";
+            obj = new Codec();
+            root = obj.Deserialize(s);
+
+            Assert.False(IsSymmetric(root));
+
         }
     }
 }
