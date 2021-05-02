@@ -34,6 +34,9 @@ Constraints:
 Follow up: Could you solve it both recursively and iteratively?
 */
 
+using System.Collections.Generic;
+using Xunit;
+
 namespace Algorithms.LeetCode.Trees
 {
     public class SymmetricBTree 
@@ -62,7 +65,22 @@ namespace Algorithms.LeetCode.Trees
                 }
                 return false;
         }
-    
-        //TODO: Write a test wrapper for the method
+        
+        [Fact]
+        public void TestWrap()
+        {
+            /*
+                        1
+                       / \
+                      2   3
+                         / \
+                        4   5
+            */
+            var s = "1,2,X,X,3,4,X,X,5";
+            var obj = new Codec();
+            var root = obj.Deserialize(s);
+
+            Assert.False(IsSymmetric(root));
+        }
     }
 }
