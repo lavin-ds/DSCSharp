@@ -97,6 +97,19 @@ namespace Algorithms.LeetCode.Trees
 
             Assert.False(IsSymmetric(root));
 
+             /*
+                         1
+                       /   \
+                      2     2
+                     / \   / \
+                    4   5 5   4
+            */
+            
+            s = "1,2,4,X,X,5,X,X,2,5,X,X,4";
+            obj = new Codec();
+            root = obj.Deserialize(s);
+
+            Assert.True(IsSymmetric(root));
         }
     }
 }
