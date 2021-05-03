@@ -133,6 +133,20 @@ namespace Algorithms.LeetCode.Trees
 
             Assert.True(IsSameTree(root1,root2));
 
+            /*
+                        1                       1
+                       / \                    /   \  
+                      2   3                  2     2  
+                     / \   \                / \   / \     
+                    4   5   6              4   5 4   5
+            */
+            
+            s = "1,2,4,X,X,5,X,X,3,X,6";            
+            root1 = obj.Deserialize(s);
+
+             s = "1,2,4,X,X,5,X,X,2,5,X,X,4";      
+            root2 = obj.Deserialize(s);
+            Assert.False(IsSameTree(root1,root2));
         }
     }
 }
