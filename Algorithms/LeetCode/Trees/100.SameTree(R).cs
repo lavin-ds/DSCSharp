@@ -41,7 +41,6 @@ Constraints:
     -104 <= Node.val <= 104
  */
 
-using DataStructures.Entities;
 using Xunit;
 
 namespace Algorithms.LeetCode.Trees
