@@ -46,7 +46,7 @@ using Xunit;
 
 namespace Algorithms.LeetCode.Trees
 {
-    public class SameTree 
+    public class SameTreeNonRecursive
     {
         /**
         * Definition for a binary tree node.
@@ -61,22 +61,8 @@ namespace Algorithms.LeetCode.Trees
         *     }
         * }
         */
-        public bool IsSameTree(BinaryTreeNode p, BinaryTreeNode q) {
-            if(p==null && q == null)
-                return true;
-            if(p==null || q == null)
-                return false;
-            if(p.data == q.data)
-            {
-                if(IsSameTree(p.left,q.left) && IsSameTree(p.right,q.right))
-                    return true;
-                else
-                    return false;
-            }
-            return false;
-        }
 
-        public bool IsSameTree2(BinaryTreeNode p, BinaryTreeNode q) {
+        public bool IsSameTree(BinaryTreeNode p, BinaryTreeNode q) {
             if(p==null && q == null)
                 return true;
             if(p==null || q == null)
