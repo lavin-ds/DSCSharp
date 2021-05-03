@@ -62,12 +62,12 @@ namespace Algorithms.LeetCode.Trees
         * }
         */
 
-        public bool IsSameTree(BinaryTreeNode p, BinaryTreeNode q) {
+        public bool IsSameTree(TreeNode p, TreeNode q) {
             if(p==null && q == null)
                 return true;
             if(p==null || q == null)
                 return false;
-            Queue<BinaryTreeNode> stage = new Queue<BinaryTreeNode>();
+            Queue<TreeNode> stage = new Queue<TreeNode>();
 
             stage.Enqueue(p);
             stage.Enqueue(q);
@@ -103,17 +103,36 @@ namespace Algorithms.LeetCode.Trees
             return true;
         }
 
-        public bool Check(BinaryTreeNode p, BinaryTreeNode q)
+        public bool Check(TreeNode p, TreeNode q)
         {
             if(p==null && q == null)
                 return true;
             if(p==null || q == null)
                 return false;
-            if(p.data == q.data)
+            if(p.val == q.val)
                 return true;           
             return false;
         }
+        
+        [Fact]
+        public void TestWrap()
+        {
+            /*
+                        1                   1
+                       / \                 / \ 
+                      2   3               2   3
+                         / \                 / \       
+                        4   5               4   5
+            */
+            var s = "1,2,X,X,3,4,X,X,5";
+            var obj = new Codec();
+            var root1 = obj.Deserialize(s);
 
-        //TODO: Write a test wrapper for the method
+            s = "1,2,X,X,3,4,X,X,5";            
+            var root2 = obj.Deserialize(s);
+
+            Assert.True(IsSameTree(root1,root2));
+
+        }
     }
 }
