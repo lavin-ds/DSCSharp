@@ -65,28 +65,26 @@ namespace Algorithms.LeetCode.Trees
         List<int> result = new List<int>();
 
         public IList<int> Preorder(Node root) 
-        {
-            if(root!=null)
+        {     
+            List<int> result = new List<int>();
+            if (root != null)
             {
-                result.Add(root.val);
-                foreach(var childNode in root.children)
-                {
-                    ITT(childNode);
+                Stack<Node> staging = new Stack<Node>();
+                staging.Push(root);
+
+                while(staging.Count>0)
+                {  
+                    root = staging.Pop();
+
+                    result.Add(root.val);
+
+                    for(int i = root.children.Count-1; i>=0;i--)
+                    {
+                        staging.Push(root.children[i]);
+                    }
                 }
             }
-            return result;         
-        }
-    
-        public void ITT(Node node)
-        {
-            if(node == null)
-                return;
-            
-            result.Add(node.val);
-            foreach(var childNode in node.children)
-            {
-                ITT(childNode);
-            }
+            return result;
         }
         
         //TODO:Test Wrapper
