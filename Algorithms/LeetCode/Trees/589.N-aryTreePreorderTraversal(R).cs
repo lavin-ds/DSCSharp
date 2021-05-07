@@ -43,7 +43,7 @@ using Xunit;
 
 namespace Algorithms.LeetCode.Trees
 {
-    public class NAryTreesPreorder
+    public class NAryTreesPreorderRecursive
     {
         public class Node 
         {
