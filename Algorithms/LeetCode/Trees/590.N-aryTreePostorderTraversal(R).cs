@@ -46,7 +46,7 @@ using Xunit;
 
 namespace Algorithms.LeetCode.Trees
 {
-    public class NAryTreesPostorder
+    public class NAryTreesPostorderRecursive
     {
         public class Node 
         {
