@@ -33,22 +33,20 @@ Constraints:
 */
 
 using System.Collections.Generic;
-using DataStructures.Entities;
 using Xunit;
 
 namespace Algorithms.LeetCode.Trees
 {
     public class LevelOrderTraversal 
     {
-        private int count = 0;
-        public IList<IList<int>> LevelOrder(BinaryTreeNode root) 
+        public IList<IList<int>> LevelOrder(TreeNode root) 
         {   
             var listTotal = new List<List<int>>();
 
             if(root == null)
                 return listTotal.ToArray();    
 
-            Queue<BinaryTreeNode> staging = new Queue<BinaryTreeNode>();
+            Queue<TreeNode> staging = new Queue<TreeNode>();
             //listTotal.Add(new List<int>{root.data});
             
             var listLocal = new List<int>();
@@ -71,7 +69,7 @@ namespace Algorithms.LeetCode.Trees
                 {
                     staging.Enqueue(temp.left);
                     staging.Enqueue(temp.right);
-                    listLocal.Add(temp.data);
+                    listLocal.Add(temp.val);
                 }
             }
             if(listLocal.Count >0)
