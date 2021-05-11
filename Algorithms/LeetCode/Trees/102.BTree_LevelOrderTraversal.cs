@@ -81,14 +81,5 @@ namespace Algorithms.LeetCode.Trees
 
             return listTotal.ToArray();
         }
-       
-        //TODO: Write a test wrapper for the method
-        /*
-        [3,9,20,null,null,15,7]
-        [1]
-        []
-        [1,2,null,3,null,4,null,5]
-        [1,2,3,4,null,null,5]
-        */
     }
 }
