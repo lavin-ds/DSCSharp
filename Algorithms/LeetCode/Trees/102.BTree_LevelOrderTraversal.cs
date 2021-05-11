@@ -79,5 +79,27 @@ namespace Algorithms.LeetCode.Trees
 
             return listTotal.ToArray();
         }
+       
+        [Fact]
+        public void TestWrap()
+        {
+            /*
+                        1
+                       / \
+                      2   3
+                         / \
+                        4   5
+            */
+            var s = "1,2,X,X,3,4,X,X,5";
+            var obj = new Codec();
+            var root = obj.Deserialize(s);
+            var listExpected = new List<List<int>>();
+            listExpected.Add(new List<int>{1});
+            listExpected.Add(new List<int>{2,3});
+            listExpected.Add(new List<int>{4,5});
+            
+            Assert.Equal(listExpected, LevelOrder(root));
+
+        }
     }
 }
