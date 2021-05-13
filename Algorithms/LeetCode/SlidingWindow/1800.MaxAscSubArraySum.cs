@@ -63,6 +63,30 @@ namespace Algorithms.LeetCode.LinkedLists
             
             return Math.Max(max,runningTotal);
         }
+
+        [Fact]
+        public void TestWrap()
+        {
+            var arr1 = new int[]{10,20,30,5,10,50};
+            var result =  MaxAscendingSum(arr1);
+            Assert.Equal(65,result);
+
+            var arr2 = new int[]{10,20,30,40,50};
+            result =  MaxAscendingSum(arr2);
+            Assert.Equal(150,result);
+
+            var arr3 = new int[]{12,17,15,13,10,11,12};
+            result =  MaxAscendingSum(arr3);
+            Assert.Equal(33,result);
+
+            var arr4 = new int[]{100,10,1};
+            result =  MaxAscendingSum(arr4);
+            Assert.Equal(100,result);
+
+            var arr5 = new int[]{3,6,10,1,8,9,9,8,9};
+            result =  MaxAscendingSum(arr5);
+            Assert.Equal(19,result);
+        } 
     }
 }
 
