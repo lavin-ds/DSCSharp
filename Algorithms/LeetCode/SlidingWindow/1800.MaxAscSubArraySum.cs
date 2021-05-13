@@ -41,7 +41,7 @@ Constraints:
 using System;
 using Xunit;
 
-namespace Algorithms.LeetCode.LinkedLists
+namespace Algorithms.LeetCode.SlidingWindow
 {
     public class MaxAscSubArraySum
     {
