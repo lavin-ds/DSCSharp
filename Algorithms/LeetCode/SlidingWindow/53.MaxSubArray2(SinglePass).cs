@@ -46,6 +46,15 @@ namespace Algorithms.LeetCode.SlidingWindow
         
             return max;
         }
+
+        [Fact]
+        public void TestWrap()
+        {
+            var arr1 = new int[]{10,20,30,5,10,50};
+            var result =  MaxSubArray(arr1);
+            Assert.Equal(125,result);
+
+        } 
     }
 }
 
