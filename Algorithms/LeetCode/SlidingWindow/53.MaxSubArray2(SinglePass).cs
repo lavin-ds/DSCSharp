@@ -65,6 +65,22 @@ namespace Algorithms.LeetCode.SlidingWindow
             var arr4 = new int[]{100,10,1};
             result =  MaxSubArray(arr4);
             Assert.Equal(111,result);
+
+            var arr5 = new int[]{3,6,10,1,8,9,9,8,9};
+            result =  MaxSubArray(arr5);
+            Assert.Equal(63,result);
+
+            var arr6 = new int[]{-2,1,-3,4,-1,2,1,-5,4};
+            result =  MaxSubArray(arr6);
+            Assert.Equal(6,result);
+            
+            var arr7 = new int[]{1};
+            result =  MaxSubArray(arr7);
+            Assert.Equal(1,result);
+            
+            var arr8 = new int[]{5,4,-1,7,8};
+            result =  MaxSubArray(arr8);
+            Assert.Equal(23,result);
         } 
     }
 }
