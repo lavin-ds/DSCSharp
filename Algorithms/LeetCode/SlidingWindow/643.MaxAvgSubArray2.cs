@@ -57,6 +57,21 @@ namespace Algorithms.LeetCode.SlidingWindow
             
             return maxVal/dk;
         }
+
+        [Fact]
+        public void TestWrap()
+        {
+            var arr1 = new int[]{1,12,-5,-6,50,3};
+            var k = 4;
+            var result = FindMaxAverage(arr1,k);
+            Assert.Equal(12.75000,result);
+
+            var arr2 = new int[]{5};
+            k = 1;
+            result = FindMaxAverage(arr2, k);
+            Assert.Equal(5.00000,result);
+
+        } 
     }
 }
 
