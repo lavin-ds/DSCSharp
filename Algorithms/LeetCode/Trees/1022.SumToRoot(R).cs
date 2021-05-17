@@ -69,5 +69,23 @@ namespace Algorithms.LeetCode.Trees
             var rightSum = ITT(root.right,sum); 
             return  leftSum + rightSum;             
         }
+
+        [Fact]
+        public void TestWrap()
+        {
+            /*
+                     1
+                   /   \
+                  0      1 
+                 / \    / \
+                0   1  0   1 
+            */
+            var s = "1,0,0,X,X,1,X,X,1,0,X,X,1";
+            var obj = new Codec();
+            var root = obj.Deserialize(s);
+            
+            var res = SumRootToLeaf(root);
+            Assert.Equal(22,res);
+        }
     }
 }
