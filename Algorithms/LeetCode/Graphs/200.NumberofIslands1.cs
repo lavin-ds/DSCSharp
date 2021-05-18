@@ -75,7 +75,6 @@ namespace Algorithms.LeetCode.Graphs
         {
             if(i>=y || j>=x || i<0 || j<0 || g[i][j] !='1')
                 return;
-            int[][] dir = new int[][]{new int[]{1, 0}, new int[]{-1, 0}, new int[]{0, 1}, new int[]{0, -1}};
             
             g[i][j] = '0'; //Mark other numbers to count area etc. Add to hashmap
 
@@ -113,7 +112,7 @@ namespace Algorithms.LeetCode.Graphs
             ip3[2] = new char[]{'0','0','1','0','0'};
             ip3[3] = new char[]{'0','0','0','1','1'};
 
-            Assert.Equal(3, NumIslands(ip1));
+            Assert.Equal(3, NumIslands(ip3));
         }
     }    
 }
