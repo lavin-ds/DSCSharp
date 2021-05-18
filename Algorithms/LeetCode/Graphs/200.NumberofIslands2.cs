@@ -98,6 +98,17 @@ namespace Algorithms.LeetCode.Graphs
 
             Assert.Equal(1, NumIslands(ip1));
 
+            char[][] ip2 = new char[7][];
+            ip2[0] = new char[]{'1','1','1','1','0','1'};
+            ip2[1] = new char[]{'1','1','0','1','0','0'};
+            ip2[2] = new char[]{'1','1','0','0','0','1'};
+            ip2[3] = new char[]{'0','0','0','0','0','0'};
+            ip2[4] = new char[]{'0','0','0','0','0','1'};
+            ip2[5] = new char[]{'0','0','0','0','0','1'};
+            ip2[6] = new char[]{'0','0','0','0','0','1'};
+
+            Assert.Equal(4, NumIslands(ip2));
+
         }
     }    
 }
