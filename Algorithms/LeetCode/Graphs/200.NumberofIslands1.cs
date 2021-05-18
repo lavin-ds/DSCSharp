@@ -84,5 +84,18 @@ namespace Algorithms.LeetCode.Graphs
             MarkVisited(i+1,j,g);
             MarkVisited(i,j+1,g);
         }
+
+        [Fact]
+        public void TestWrap()
+        {
+            char[][] ip1 = new char[4][];
+            ip1[0] = new char[]{'1','1','1','1','0'};
+            ip1[1] = new char[]{'1','1','0','1','0'};
+            ip1[2] = new char[]{'1','1','0','0','0'};
+            ip1[3] = new char[]{'0','0','0','0','0'};
+
+            Assert.Equal(1, NumIslands(ip1));
+
+        }
     }    
 }
