@@ -122,7 +122,33 @@ namespace Algorithms.LeetCode.Trees
             expected = obj.Deserialize(s);
             res = InvertTree(root);
             Assert.True(treeTest.IsSameTree(expected,res));
- 
+
+            /*
+                Original
+                        1
+                       / \
+                      3   2
+                     / 
+                    5   
+            */
+            
+            s = "1,3,5,X,X,X,2";
+            root = obj.Deserialize(s);
+
+            /*
+                Inverted
+                        1
+                       / \
+                      2   3
+                           \
+                            5 
+            */
+
+            s = "1,2,X,X,3,X,5";
+            expected = obj.Deserialize(s);
+            res = InvertTree(root);
+            Assert.True(treeTest.IsSameTree(expected,res));
+            
         }
     }
 }  
