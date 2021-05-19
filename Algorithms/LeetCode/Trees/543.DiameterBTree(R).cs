@@ -54,8 +54,11 @@ namespace Algorithms.LeetCode.Trees
                 var leftMax = ITT(node.left);            
                 var rightMax = ITT(node.right);            
                 
+                //Find the sum of the left and right of a node. If it is greater than current max assign to max.
                 if(leftMax+rightMax > max)
                     max = leftMax + rightMax;
+                //Return the max length either left or right of a node to its parent. Add the node itself +1
+                //so the distance from the parent to the node max is included.
                 return Math.Max(leftMax,rightMax) + 1;
             }  
             return 0;
