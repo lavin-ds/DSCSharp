@@ -76,5 +76,38 @@ namespace Algorithms.LeetCode.Trees
             }
             return a;
         }
+
+        [Fact]
+        public void TestWrap()
+        {
+            /*
+                Orignal
+                        1
+                       / \
+                      2   3
+                         / \
+                        4   5
+            */
+            var s = "1,2,X,X,3,4,X,X,5";
+            var obj = new Codec();
+            var root = obj.Deserialize(s);
+            
+            /*
+                Inverted
+                        1
+                       / \
+                      3   2
+                     / \
+                    5   4
+            */
+
+            s = "1,3,5,X,X,4,X,X,2";
+            var expected = obj.Deserialize(s);
+            var res = InvertTree(root);
+            var treeTest = new SameTree();
+            Assert.True(treeTest.IsSameTree(expected,res));
+
+            
+        }
     }
 }  
