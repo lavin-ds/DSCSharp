@@ -107,6 +107,33 @@ namespace Algorithms.LeetCode.Trees
             var treeTest = new SameTree();
             Assert.True(treeTest.IsSameTree(expected,res));
 
+             /*
+                Original
+                        1
+                       / \
+                      2   3
+                     / \   \
+                    4   5   6
+            */
+            
+            s = "1,2,4,X,X,5,X,X,3,X,6";
+            root = obj.Deserialize(s);
+
+            /*
+                Inverted
+                        1
+                       / \
+                      3   2
+                     /   / \
+                    6   5   4
+
+            */
+
+            s = "1,3,6,X,X,X,2,5,X,X,4";
+            expected = obj.Deserialize(s);
+            res = InvertTree(root);
+            Assert.True(treeTest.IsSameTree(expected,res));
+
             
         }
     }
