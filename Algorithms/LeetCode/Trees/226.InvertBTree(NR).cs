@@ -160,6 +160,32 @@ namespace Algorithms.LeetCode.Trees
             res = InvertTree(root);
             Assert.True(treeTest.IsSameTree(expected,res));
             
+            /*
+                Original
+                        1
+                       /
+                      3   
+                     / 
+                    5   
+            */
+            
+            s = "1,3,5,X,X,X";
+            root = obj.Deserialize(s);
+            
+            /*
+                Inverted
+                       1
+                        \
+                         3
+                          \
+                           5
+            */
+
+            s = "1,X,3,X,5";
+            expected = obj.Deserialize(s);
+            res = InvertTree(root);
+            Assert.True(treeTest.IsSameTree(expected,res));
+            
             
         }
     }
