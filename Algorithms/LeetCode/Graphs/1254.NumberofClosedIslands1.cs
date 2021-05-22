@@ -123,6 +123,15 @@ namespace Algorithms.LeetCode.Graphs
 
             Assert.Equal(0, ClosedIsland(ip3));
 
+            int[][] ip4 = new int[5][];
+            ip4[0] = new int[]{1,1,1,1,1,1,1,0};
+            ip4[1] = new int[]{1,0,0,0,0,1,1,0};
+            ip4[2] = new int[]{1,0,1,0,1,1,1,0};
+            ip4[3] = new int[]{1,0,0,0,0,1,0,1};
+            ip4[4] = new int[]{1,1,1,1,1,1,1,0};
+
+            Assert.Equal(2, ClosedIsland(ip4));
+
         }
     }    
 }
