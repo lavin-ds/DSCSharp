@@ -91,5 +91,18 @@ namespace Algorithms.LeetCode.Graphs
             res = res & IsClosedIsland(i-1,j,g) & IsClosedIsland(i,j-1,g) & IsClosedIsland(i+1,j,g) & IsClosedIsland(i,j+1,g);
             return res;
         }
+
+        [Fact]
+        public void TestWrap()
+        {
+            int[][] ip1 = new int[4][];
+            ip1[0] = new int[]{0,0,0,0,1};
+            ip1[1] = new int[]{0,0,1,0,1};
+            ip1[2] = new int[]{0,0,1,1,1};
+            ip1[3] = new int[]{1,1,1,1,1};
+
+            Assert.Equal(0, ClosedIsland(ip1));
+
+        }
     }    
 }
