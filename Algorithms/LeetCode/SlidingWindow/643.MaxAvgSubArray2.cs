@@ -70,6 +70,10 @@ namespace Algorithms.LeetCode.SlidingWindow
             result = FindMaxAverage(arr2, k);
             Assert.Equal(5.00000,result);
 
+            var arr3 = new int[]{12,17,15,13,10,11,12};
+            k = 3;
+            result =  FindMaxAverage(arr3,k);
+            Assert.Equal(15.00000,result);
         } 
     }
 }
