@@ -65,6 +65,11 @@ namespace Algorithms.LeetCode.SlidingWindow
             var result = FindMaxAverage(arr1,k);
             Assert.Equal(12.75000,result);
 
+            var arr2 = new int[]{5};
+            k = 1;
+            result = FindMaxAverage(arr2, k);
+            Assert.Equal(5.00000,result);
+
         } 
     }
 }
