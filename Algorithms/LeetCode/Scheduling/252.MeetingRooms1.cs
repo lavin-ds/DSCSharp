@@ -39,5 +39,17 @@ namespace Algorithms.LeetCode.Scheduling
             }
             return true;
         }
+
+        [Fact]
+        public void TestName()
+        {
+            int[][] meetings1 = new int[3][];            
+            meetings1[0]  = new int[2]{0,30};
+            meetings1[1]  = new int[2]{5,10};
+            meetings1[2]  = new int[2]{15,20};           
+
+            Assert.False(MeetingRooms(meetings1));
+
+        }
     }
 }
