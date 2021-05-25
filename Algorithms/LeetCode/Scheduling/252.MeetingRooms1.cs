@@ -50,6 +50,14 @@ namespace Algorithms.LeetCode.Scheduling
 
             Assert.False(MeetingRooms(meetings1));
 
+            int[][] meetings2 = new int[4][];            
+            meetings2[0]  = new int[2]{0,30};
+            meetings2[1]  = new int[2]{31,40};
+            meetings2[2]  = new int[2]{45,50};
+            meetings2[3]  = new int[2]{55,60};
+
+            Assert.True(MeetingRooms(meetings2));
+
         }
     }
 }
