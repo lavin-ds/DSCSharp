@@ -136,6 +136,20 @@ namespace Algorithms.LeetCode.Trees
             root2 = obj.Deserialize(s2);
             Assert.True(IsSubtree(root1, root2));
 
+            /*
+                        1                   3
+                       /                   / 
+                      3                   5  
+                     / 
+                    5   
+            */
+            
+            s1 = "1,3,5,X,X,X";
+            s2 = "3,5";
+            root1 = obj.Deserialize(s1);
+            root2 = obj.Deserialize(s2);
+            Assert.True(IsSubtree(root1, root2));
+
         }
     }
 }  
