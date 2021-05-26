@@ -89,5 +89,24 @@ namespace Algorithms.LeetCode.Trees
             } 
             return false;
         }
+
+        [Fact]
+        public void TestWrap()
+        {
+            /*
+                        1                     3            
+                       / \                   / \   
+                      2   3                 4   5 
+                         / \
+                        4   5
+            */
+            var s1 = "1,2,X,X,3,4,X,X,5";
+            var s2 = "3,4,X,X,5";
+            var obj = new Codec();
+            var root1 = obj.Deserialize(s1);
+            var root2 = obj.Deserialize(s2);
+
+            Assert.True(IsSubtree(root1, root2));
+        }
     }
 }  
