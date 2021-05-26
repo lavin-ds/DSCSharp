@@ -107,6 +107,21 @@ namespace Algorithms.LeetCode.Trees
             var root2 = obj.Deserialize(s2);
 
             Assert.True(IsSubtree(root1, root2));
+
+             /*
+                        1                     2
+                       / \                   / \   
+                      2   3                 4   5
+                     / \   \
+                    4   5   6
+            */
+            
+            s1 = "1,2,4,X,X,5,X,X,3,X,6";            
+            s2 = "2,4,X,X,5";
+            root1 = obj.Deserialize(s1);
+            root2 = obj.Deserialize(s2);
+            Assert.True(IsSubtree(root1, root2));
+
         }
     }
 }  
