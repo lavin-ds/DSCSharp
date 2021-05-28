@@ -28,8 +28,8 @@
   - [Todo](#todo)
 - [Getting the code](#getting-the-code)
   - [Prerequisites](#prerequisites)
-- [Built with](#️built-with)
-- [Authors](#️authors)
+- [Built with](#built-with)
+- [Authors](#authors)
 
 ## About
 
