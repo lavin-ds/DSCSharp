@@ -10,6 +10,11 @@ Return the number of good nodes in the binary tree.
  
 
 Example 1:
+                    3
+                   / \
+                  1   4
+                 /   / \  
+                3   1   5
 
 Input: root = [3,1,4,3,null,1,5]
 Output: 4
@@ -20,7 +25,12 @@ Node 5 -> (3,4,5) is the maximum value in the path
 Node 3 -> (3,1,3) is the maximum value in the path.
 
 Example 2:
-
+                    3
+                   / 
+                  3  
+                 / \ 
+                4   2 
+                
 Input: root = [3,3,null,4,2]
 Output: 3
 Explanation: Node 2 -> (3, 3, 2) is not good, because "3" is higher than it.
