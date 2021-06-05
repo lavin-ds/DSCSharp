@@ -93,6 +93,10 @@ namespace Algorithms.LeetCode.Strings
             s3 = "aaaaae";  
             Assert.True(IsSumEqual(s1,s2,s3));
 
+            s1 = "j";
+            s2 = "j";
+            s3 = "bi";  
+            Assert.True(IsSumEqual(s1,s2,s3));
         }
     }
 }
