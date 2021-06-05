@@ -48,3 +48,26 @@ Constraints:
     1 <= firstWord.length, secondWord.length, targetWord.length <= 8
     firstWord, secondWord, and targetWord consist of lowercase English letters from 'a' to 'j' inclusive.
 */
+ 
+using Xunit;
+
+namespace Algorithms.LeetCode.Strings
+{
+    public class WordEqualsSumOtherWords 
+    {
+        public bool IsSumEqual(string firstWord, string secondWord, string targetWord) 
+        {
+            return (WordTotal(targetWord) == WordTotal(firstWord) + WordTotal(secondWord));        
+        }
+    
+        private int WordTotal(string word)
+        {
+            int sum = 0;
+            foreach(var letter in word)
+            {
+                 sum = (sum*10) + letter-97;
+            }
+            return sum;
+        }
+    }
+}
