@@ -69,5 +69,15 @@ namespace Algorithms.LeetCode.Strings
             }
             return sum;
         }
+
+        [Fact]
+        public void TestWrap1()
+        {
+            string s1 = "acb";
+            string s2 = "cba";
+            string s3 = "cdb";       
+            Assert.True(IsSumEqual(s1,s2,s3));
+
+        }
     }
 }
