@@ -78,6 +78,11 @@ namespace Algorithms.LeetCode.Strings
             string s3 = "cdb";       
             Assert.True(IsSumEqual(s1,s2,s3));
 
+            s1 = "aaa";
+            s2 = "a";
+            s3 = "aab";     
+            Assert.False(IsSumEqual(s1,s2,s3));
+
         }
     }
 }
