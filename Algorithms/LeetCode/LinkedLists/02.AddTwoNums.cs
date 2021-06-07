@@ -40,3 +40,54 @@ Constraints:
     0 <= Node.val <= 9
     It is guaranteed that the list represents a number that does not have leading zeros.
 */
+
+using System.Numerics;
+using Xunit;
+
+namespace Algorithms.LeetCode.LinkedLists
+{
+    public class ListNode 
+    {
+        public int val;
+        public ListNode next;
+        public ListNode(int val=0, ListNode next=null) {
+            this.val = val;
+            this.next = next;
+        }
+    }
+    public class AddTwoNums
+    {
+        public ListNode AddTwoNumbers(ListNode l1, ListNode l2) 
+        {
+            BigInteger sum  = FetchNumber(l1) + FetchNumber(l2);
+            if(sum ==0)
+            {
+                return new ListNode(0, null);
+            }
+            var res = CreateNode(sum); 
+            return res;
+        }
+    
+        private BigInteger FetchNumber(ListNode l)
+        {
+            BigInteger num = 0;
+            BigInteger multi = 1;
+            while(l != null)
+            {
+                num += l.val * multi;
+                multi = multi*10;
+                l = l.next;
+            }
+            return num;
+        }
+    
+        private ListNode CreateNode(BigInteger num)
+        {
+            if(num<1)
+                return null;
+            
+            var output = new ListNode((int)(num%10), CreateNode(num/10)); 
+            return output;
+        }
+    }
+}
