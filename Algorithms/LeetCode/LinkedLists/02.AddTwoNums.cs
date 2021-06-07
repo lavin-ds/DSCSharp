@@ -120,5 +120,38 @@ namespace Algorithms.LeetCode.LinkedLists
             Assert.Equal(reshead.val, AddTwoNumbers(head1, head2).val);
         }
 
+        [Fact]
+        public void TestWrap5()
+        {            
+            ListNode head1 = new ListNode(9, null);
+
+            ListNode tail2 = new ListNode(9,null);
+            ListNode prev2 = new ListNode(9,tail2);
+            prev2 = new ListNode(9,prev2);
+            prev2 = new ListNode(9,prev2);
+            prev2 = new ListNode(9,prev2);
+            prev2 = new ListNode(9,prev2);
+            prev2 = new ListNode(9,prev2);
+            prev2 = new ListNode(9,prev2);
+            prev2 = new ListNode(9,prev2);
+            ListNode head2 = new ListNode(1, prev2);
+
+            ListNode restail = new ListNode(1,null);
+            ListNode resprev = new ListNode(0,restail);
+            resprev = new ListNode(0,restail);
+            resprev = new ListNode(0,restail);
+            resprev = new ListNode(0,restail);
+            resprev = new ListNode(0,restail);
+            resprev = new ListNode(0,restail);
+            resprev = new ListNode(0,restail);
+            resprev = new ListNode(0,restail);
+            resprev = new ListNode(0,restail);
+            ListNode reshead = new ListNode(0, resprev);
+            
+            Assert.Equal(reshead.val, AddTwoNumbers(head1, head2).val);
+        }
+
+
+
     }
 }
