@@ -89,5 +89,25 @@ namespace Algorithms.LeetCode.LinkedLists
             var output = new ListNode((int)(num%10), CreateNode(num/10)); 
             return output;
         }
+
+        [Fact]
+        public void TestWrap1()
+        {
+            ListNode tail1 = new ListNode(3,null);
+            ListNode prev1 = new ListNode(4,tail1);
+            ListNode head1 = new ListNode(2, prev1);
+
+            ListNode tail2 = new ListNode(4,null);
+            ListNode prev2 = new ListNode(6,tail2);
+            ListNode head2 = new ListNode(5, prev2);
+
+            ListNode restail = new ListNode(8,null);
+            ListNode resprev = new ListNode(0,restail);
+            ListNode reshead = new ListNode(7, resprev);
+            
+            Assert.Equal(reshead.val, AddTwoNumbers(head1, head2).val);
+
+        }
+
     }
 }
