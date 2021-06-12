@@ -40,5 +40,13 @@ namespace Algorithms.LeetCode.Strings
             }
             return res.ToString().TrimEnd('[','.',']');            
         }
+
+        [Fact]
+        public void TestWrap1()
+        {
+            string s = "1.1.1.1";       
+            Assert.Equal("1[.]1[.]1[.]1", DefangIPaddr(s));
+
+        }
     }
 }
