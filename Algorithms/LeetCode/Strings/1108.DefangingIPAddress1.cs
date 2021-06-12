@@ -21,3 +21,24 @@ Constraints:
     The given address is a valid IPv4 address.
 
  */
+ 
+using System.Text;
+using Xunit;
+
+namespace Algorithms.LeetCode.Strings
+{
+    public class DefangingIPAddress1
+    {
+        public string DefangIPaddr(string address) 
+        {
+            var ip = address.Split('.');
+            StringBuilder res = new StringBuilder();
+            foreach(var item in ip)
+            {
+                res.Append(item);
+                res.Append("[.]");
+            }
+            return res.ToString().TrimEnd('[','.',']');            
+        }
+    }
+}
