@@ -47,6 +47,8 @@ namespace Algorithms.LeetCode.Strings
             string s = "1.1.1.1";       
             Assert.Equal("1[.]1[.]1[.]1", DefangIPaddr(s));
 
+            s = "255.100.50.0";          
+            Assert.Equal("255[.]100[.]50[.]0", DefangIPaddr(s));
         }
     }
 }
