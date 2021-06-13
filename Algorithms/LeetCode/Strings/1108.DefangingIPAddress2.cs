@@ -20,3 +20,17 @@ Constraints:
 
     The given address is a valid IPv4 address.
  */
+ 
+using System.Text;
+using Xunit;
+
+namespace Algorithms.LeetCode.Strings
+{
+    public class DefangingIPAddress2
+    {
+        public string DefangIPaddr(string address) 
+        {
+             return address.Replace(".","[.]");        
+        }
+    }
+}
