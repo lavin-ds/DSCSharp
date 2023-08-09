@@ -52,20 +52,22 @@ namespace Algorithms.LeetCode.BinarySearchTrees
             return sum;
         }
 
-        public void RangeSum(TreeNode root)
+    public void RangeSum(TreeNode root)
+    {
+        if (root == null)
         {
-            if (root == null)
-            {
-                return;
-            }
-            if(root.val>=low && root.val<=high)
-            {
-                sum = sum + root.val;
-            }
-            
-            RangeSum(root.left);
-            RangeSum(root.right);
+            return;
         }
+        if(root.val>=low && root.val<=high)
+        {
+            sum = sum + root.val;
+        }
+        
+        if(root.val>=low)
+            RangeSum(root.left);
+        if(root.val<=high)
+            RangeSum(root.right);
+    }
 
         [Fact]
         public void TestWrap()
