@@ -49,6 +49,7 @@ Constraints:
     customers consists only of characters 'Y' and 'N'.
 */
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Xunit;
@@ -81,6 +82,50 @@ namespace Algorithms.LeetCode.PrefixSum
             return penalty.OrderBy(kv => kv.Value).ToDictionary(kv => kv.Key, kv => kv.Value).First().Key;
         }
 
+        public int BestClosingTime2(string customers)
+        {
+            //The count of Y is just a relative constant. We can eliminate this,
+            //and start the reference for calculation where ever we like
+            //We can also calculate the min and hour position in a single pass.
+
+            //var countY = customers.Count(c => c == 'Y');
+            int cur_pen = 0, min_pen = Int32.MaxValue, hour = 0;
+            int visitY = 0, visitN = 0;
+
+            for (int i = 0; i < customers.Length; i++)
+            {
+                if (customers[i] == 'Y')
+                {
+                    cur_pen = visitN - visitY;
+                    if (cur_pen < min_pen)
+                    {
+                        min_pen = cur_pen;
+                        hour = i;
+                    }
+                    visitY++;
+                }
+                else
+                {
+                    cur_pen = visitN - visitY;
+                    if (cur_pen < min_pen)
+                    {
+                        min_pen = cur_pen;
+                        hour = i;
+                    }
+                    visitN++;
+                }
+            }
+
+            cur_pen = visitN - visitY;
+            if (cur_pen < min_pen)
+            {
+                min_pen = cur_pen;
+                hour = customers.Length;
+            }
+
+            return hour;
+        }
+
         [Fact]
         public void TestWrap1()
         {
@@ -92,9 +137,25 @@ namespace Algorithms.LeetCode.PrefixSum
 
             Assert.Equal(4, BestClosingTime(customers2));
 
-             var customers3 = "YN";
+            var customers3 = "YN";
 
             Assert.Equal(1, BestClosingTime(customers3));
+        }
+
+        [Fact]
+        public void TestWrap2()
+        {
+            var customers1 = "YYNY";
+
+            Assert.Equal(2, BestClosingTime2(customers1));
+
+            var customers2 = "YYYY";
+
+            Assert.Equal(4, BestClosingTime2(customers2));
+
+            var customers3 = "YN";
+
+            Assert.Equal(1, BestClosingTime2(customers3));
         }
     }
 }
