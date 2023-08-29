@@ -59,15 +59,13 @@ namespace Algorithms.LeetCode.PrefixSum
     {
         public int BestClosingTime(string customers)
         {
-            var cust = customers.Split();
             var countY = customers.Count(c => c == 'Y');
-            var countN = customers.Count(c => c == 'N');
             int visitY = 0, visitN = 0;
             var penalty = new Dictionary<int, int>();
 
-            for (int i = 0; i < cust.Length; i++)
+            for (int i = 0; i < customers.Length; i++)
             {
-                if (cust[i] == "Y")
+                if (customers[i] == 'Y')
                 {
                     penalty.Add(i, countY - visitY + visitN);
                     visitY++;
@@ -79,7 +77,7 @@ namespace Algorithms.LeetCode.PrefixSum
                 }
             }
 
-            penalty.Add(cust.Length + 1, countY - visitY + visitN);
+            penalty.Add(customers.Length, countY - visitY + visitN);
             return penalty.OrderBy(kv => kv.Value).ToDictionary(kv => kv.Key, kv => kv.Value).First().Key;
         }
 
@@ -93,6 +91,10 @@ namespace Algorithms.LeetCode.PrefixSum
             var customers2 = "YYYY";
 
             Assert.Equal(4, BestClosingTime(customers2));
+
+             var customers3 = "YN";
+
+            Assert.Equal(1, BestClosingTime(customers3));
         }
     }
 }
